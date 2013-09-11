@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+</head>
+
+<body>
+    <div id="header">
+		<h1><a href="Home">Enviro</a></h1>		
+		</div>
+		
+		<div id="search">
+			<input type="text" placeholder="Search here..."/><button type="submit" class="tip-right" title="Search"><i class="icon-search icon-white"></i></button>
+		</div>
+		<div id="user-nav" class="navbar navbar-inverse">
+            <ul class="nav btn-group">
+                <li class="btn btn-inverse" ><a title="" href="#"><i class="icon icon-user"></i> <span class="text">Profile</span></a></li>
+                <li class="btn btn-inverse"><a title="" href="Login"><i class="icon icon-share-alt"></i> <span class="text">Logout</span></a></li>
+            </ul>
+        </div>
+            
+		<div id="sidebar">
+			<ul>
+				<li id="home" class="submenu">
+					<a href="#"><i class="icon icon-th-list"></i> <span>Master Data</span> <span class="label">3</span></a>
+					<ul>
+                        <li id="sources-waste" class="content-config"><a href="#">sources of waste</a></li>
+                        <li id="waste" class="content-setting"><a href="#">Waste</a></li>
+                        <li id="type-waste" class="content-config"><a href="#">Type of Waste</a></li>
+					</ul>
+				</li>
+                <li id="waste-data" class="submenu open">
+					<a href="#"><i class="icon icon-th-list"></i> <span>Waste</span> <span class="label">3</span></a>
+					<ul>
+                        <li id="hazardous-waste" class="content-setting"><a href="#">Hazardous Waste Record</a></li>
+                        <li id="non-hazardous-waste" class="content-config"><a href="#">Non Hazardous Waste Record</a></li>
+                        <li id="b3-waste" class="content-config"><a href="#">B3 Waste</a></li>
+					</ul>
+				</li>
+			</ul>	
+		</div>
+        <div id="content">
+            @RenderBody()
+        </div>
+        @Scripts.Render("~/bundles/app")
+        @RenderSection("scripts", required: false)
+</body>
+</html>
