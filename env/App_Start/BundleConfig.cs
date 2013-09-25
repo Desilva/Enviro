@@ -25,10 +25,12 @@ namespace env
                         "~/Scripts/jquery.flot.js",
                         "~/Scripts/jquery.flot.resize.js",
                         "~/Scripts/jquery.peity.js",
+                        "~/Scripts/jquery.uniform.js",
                         "~/Scripts/fullcalendar.js",
                         "~/Scripts/unicorn.js",
                         "~/Scripts/kendo.all.js",
-                        "~/Scripts/ckeditor/ckeditor.js"
+                        "~/Scripts/ckeditor/ckeditor.js",
+                        "~/Scripts/select2.js"
                         ));
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
@@ -44,7 +46,11 @@ namespace env
                         "~/Content/unicorn.grey.css",
                         "~/Content/kendo.common.css",
                         "~/Content/kendo.silver.css",
-                        "~/Content/site.css"
+                        "~/Content/site.css",
+                        "~/Content/select2.css",
+                        "~/Content/uniform.css",
+                        "~/Content/jquery-ui.css",
+                        "~/Content/jquery.gritter.css"
                         ));
 
             bundles.Add(new StyleBundle("~/Content/themes/base/css").Include(

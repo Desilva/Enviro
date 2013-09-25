@@ -1,0 +1,314 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="star_energy_enviroModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="star_energy_enviroModelStoreContainer">
+          <EntitySet Name="hazardous_record" EntityType="star_energy_enviroModel.Store.hazardous_record" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="satuan_unit" EntityType="star_energy_enviroModel.Store.satuan_unit" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="source_of_waste" EntityType="star_energy_enviroModel.Store.source_of_waste" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="type_of_waste" EntityType="star_energy_enviroModel.Store.type_of_waste" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="waste_hazardous" EntityType="star_energy_enviroModel.Store.waste_hazardous" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_hazardous_record_satuan_unit" Association="star_energy_enviroModel.Store.FK_hazardous_record_satuan_unit">
+            <End Role="satuan_unit" EntitySet="satuan_unit" />
+            <End Role="hazardous_record" EntitySet="hazardous_record" />
+          </AssociationSet>
+          <AssociationSet Name="FK_hazardous_record_source_of_waste" Association="star_energy_enviroModel.Store.FK_hazardous_record_source_of_waste">
+            <End Role="source_of_waste" EntitySet="source_of_waste" />
+            <End Role="hazardous_record" EntitySet="hazardous_record" />
+          </AssociationSet>
+          <AssociationSet Name="FK_hazardous_record_waste_hazardous" Association="star_energy_enviroModel.Store.FK_hazardous_record_waste_hazardous">
+            <End Role="waste_hazardous" EntitySet="waste_hazardous" />
+            <End Role="hazardous_record" EntitySet="hazardous_record" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="hazardous_record">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="date" Type="date" />
+          <Property Name="id_waste" Type="int" />
+          <Property Name="id_source" Type="int" />
+          <Property Name="no_kemasan" Type="varchar" MaxLength="100" />
+          <Property Name="kemasan" Type="varchar" MaxLength="255" />
+          <Property Name="volume_weight" Type="varchar" MaxLength="255" />
+          <Property Name="internal_document" Type="varchar" MaxLength="50" />
+          <Property Name="type" Type="tinyint" />
+          <Property Name="tujuan" Type="varchar" MaxLength="255" />
+          <Property Name="external_document" Type="varchar" MaxLength="255" />
+          <Property Name="id_satuan" Type="int" />
+        </EntityType>
+        <EntityType Name="satuan_unit">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="satuan" Type="varchar" MaxLength="50" />
+          <Property Name="unit_conversion" Type="float" />
+        </EntityType>
+        <EntityType Name="source_of_waste">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="source" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="type_of_waste">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="waste_hazardous">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="varchar" MaxLength="255" />
+          <Property Name="waste_code" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <Association Name="FK_hazardous_record_satuan_unit">
+          <End Role="satuan_unit" Type="star_energy_enviroModel.Store.satuan_unit" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="hazardous_record" Type="star_energy_enviroModel.Store.hazardous_record" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="satuan_unit">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="hazardous_record">
+              <PropertyRef Name="id_satuan" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_hazardous_record_source_of_waste">
+          <End Role="source_of_waste" Type="star_energy_enviroModel.Store.source_of_waste" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="hazardous_record" Type="star_energy_enviroModel.Store.hazardous_record" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="source_of_waste">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="hazardous_record">
+              <PropertyRef Name="id_source" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_hazardous_record_waste_hazardous">
+          <End Role="waste_hazardous" Type="star_energy_enviroModel.Store.waste_hazardous" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="hazardous_record" Type="star_energy_enviroModel.Store.hazardous_record" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="waste_hazardous">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="hazardous_record">
+              <PropertyRef Name="id_waste" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="star_energy_enviroModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="star_energy_enviroEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="source_of_waste" EntityType="star_energy_enviroModel.source_of_waste" />
+          <EntitySet Name="type_of_waste" EntityType="star_energy_enviroModel.type_of_waste" />
+          <EntitySet Name="waste_hazardous" EntityType="star_energy_enviroModel.waste_hazardous" />
+          <EntitySet Name="satuan_unit" EntityType="star_energy_enviroModel.satuan_unit" />
+          <EntitySet Name="hazardous_record" EntityType="star_energy_enviroModel.hazardous_record" />
+          <AssociationSet Name="FK_hazardous_record_satuan_unit" Association="star_energy_enviroModel.FK_hazardous_record_satuan_unit">
+            <End Role="satuan_unit" EntitySet="satuan_unit" />
+            <End Role="hazardous_record" EntitySet="hazardous_record" />
+          </AssociationSet>
+          <AssociationSet Name="FK_hazardous_record_source_of_waste" Association="star_energy_enviroModel.FK_hazardous_record_source_of_waste">
+            <End Role="source_of_waste" EntitySet="source_of_waste" />
+            <End Role="hazardous_record" EntitySet="hazardous_record" />
+          </AssociationSet>
+          <AssociationSet Name="FK_hazardous_record_waste_hazardous" Association="star_energy_enviroModel.FK_hazardous_record_waste_hazardous">
+            <End Role="waste_hazardous" EntitySet="waste_hazardous" />
+            <End Role="hazardous_record" EntitySet="hazardous_record" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="source_of_waste">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="source" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="hazardous_record" Relationship="star_energy_enviroModel.FK_hazardous_record_source_of_waste" FromRole="source_of_waste" ToRole="hazardous_record" />
+        </EntityType>
+        <EntityType Name="type_of_waste">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="waste_hazardous">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="waste_code" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="hazardous_record" Relationship="star_energy_enviroModel.FK_hazardous_record_waste_hazardous" FromRole="waste_hazardous" ToRole="hazardous_record" />
+        </EntityType>
+        <EntityType Name="satuan_unit">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="satuan" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="unit_conversion" />
+          <NavigationProperty Name="hazardous_record" Relationship="star_energy_enviroModel.FK_hazardous_record_satuan_unit" FromRole="satuan_unit" ToRole="hazardous_record" />
+        </EntityType>
+        <EntityType Name="hazardous_record">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="DateTime" Name="date" Precision="0" />
+          <Property Type="Int32" Name="id_waste" />
+          <Property Type="Int32" Name="id_source" />
+          <Property Type="String" Name="no_kemasan" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="kemasan" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="volume_weight" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="internal_document" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Byte" Name="type" />
+          <Property Type="String" Name="tujuan" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="external_document" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="id_satuan" />
+          <NavigationProperty Name="satuan_unit" Relationship="star_energy_enviroModel.FK_hazardous_record_satuan_unit" FromRole="hazardous_record" ToRole="satuan_unit" />
+          <NavigationProperty Name="source_of_waste" Relationship="star_energy_enviroModel.FK_hazardous_record_source_of_waste" FromRole="hazardous_record" ToRole="source_of_waste" />
+          <NavigationProperty Name="waste_hazardous" Relationship="star_energy_enviroModel.FK_hazardous_record_waste_hazardous" FromRole="hazardous_record" ToRole="waste_hazardous" />
+        </EntityType>
+        <Association Name="FK_hazardous_record_satuan_unit">
+          <End Type="star_energy_enviroModel.satuan_unit" Role="satuan_unit" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="star_energy_enviroModel.hazardous_record" Role="hazardous_record" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="satuan_unit">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="hazardous_record">
+              <PropertyRef Name="id_satuan" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_hazardous_record_source_of_waste">
+          <End Type="star_energy_enviroModel.source_of_waste" Role="source_of_waste" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="star_energy_enviroModel.hazardous_record" Role="hazardous_record" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="source_of_waste">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="hazardous_record">
+              <PropertyRef Name="id_source" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_hazardous_record_waste_hazardous">
+          <End Type="star_energy_enviroModel.waste_hazardous" Role="waste_hazardous" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="star_energy_enviroModel.hazardous_record" Role="hazardous_record" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="waste_hazardous">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="hazardous_record">
+              <PropertyRef Name="id_waste" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="star_energy_enviroModelStoreContainer" CdmEntityContainer="star_energy_enviroEntities">
+          <EntitySetMapping Name="source_of_waste">
+            <EntityTypeMapping TypeName="star_energy_enviroModel.source_of_waste">
+              <MappingFragment StoreEntitySet="source_of_waste">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="source" ColumnName="source" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="type_of_waste">
+            <EntityTypeMapping TypeName="star_energy_enviroModel.type_of_waste">
+              <MappingFragment StoreEntitySet="type_of_waste">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="waste_hazardous">
+            <EntityTypeMapping TypeName="star_energy_enviroModel.waste_hazardous">
+              <MappingFragment StoreEntitySet="waste_hazardous">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="waste_code" ColumnName="waste_code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="satuan_unit">
+            <EntityTypeMapping TypeName="star_energy_enviroModel.satuan_unit">
+              <MappingFragment StoreEntitySet="satuan_unit">
+                <ScalarProperty Name="unit_conversion" ColumnName="unit_conversion" />
+                <ScalarProperty Name="satuan" ColumnName="satuan" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="hazardous_record">
+            <EntityTypeMapping TypeName="star_energy_enviroModel.hazardous_record">
+              <MappingFragment StoreEntitySet="hazardous_record">
+                <ScalarProperty Name="id_satuan" ColumnName="id_satuan" />
+                <ScalarProperty Name="external_document" ColumnName="external_document" />
+                <ScalarProperty Name="tujuan" ColumnName="tujuan" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="internal_document" ColumnName="internal_document" />
+                <ScalarProperty Name="volume_weight" ColumnName="volume_weight" />
+                <ScalarProperty Name="kemasan" ColumnName="kemasan" />
+                <ScalarProperty Name="no_kemasan" ColumnName="no_kemasan" />
+                <ScalarProperty Name="id_source" ColumnName="id_source" />
+                <ScalarProperty Name="id_waste" ColumnName="id_waste" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

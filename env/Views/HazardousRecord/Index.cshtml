@@ -1,0 +1,252 @@
+﻿@{
+    Layout = null;
+    ViewBag.Title = "Enviro - Hazardous Waste Record";
+    
+}
+<div id="content-header">
+	<h1>Hazardous Waste Record</h1>
+</div>
+<div id="breadcrumb">
+	<a href="#"><i class="icon-home"></i> Waste Record</a>
+	<a href="#" class="current">Hazardous Waste Record</a>
+</div><br />
+<div id="content-hazard">
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12">
+                <input class="btn" type="button" value="Add New Record" onclick="createHazard();" /><br />
+            </div>
+        </div>
+        <div class="row-fluid">
+            <div class="span12">
+                <div class="widget-box">
+		            <div class="widget-title">
+			            <span class="icon">
+				            <i class="icon-align-justify"></i>									
+			            </span>
+			            <h5>Hazardous Waste In Record</h5>
+		            </div>
+		            <div class="widget-content nopadding">
+                        <div id="grid-hazard-in" class="span12"></div>
+		            </div>
+                </div>
+            </div>
+        </div>
+        <div class="row-fluid">
+            <div class="span12">
+                <div class="widget-box">
+		            <div class="widget-title">
+			            <span class="icon">
+				            <i class="icon-align-justify"></i>									
+			            </span>
+			            <h5>Hazardous Waste Out Record</h5>
+		            </div>
+		            <div class="widget-content nopadding">
+                        <div id="grid-hazard-out" class="span12"></div>
+		            </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/x-kendo-template" id="template-hazard">
+
+</script>
+<script>
+    $(document).ready(function () {
+        var crudServiceBaseUrl = "HazardousRecord",
+            dataSourceIn = new kendo.data.DataSource({
+                transport: {
+                    read: {
+                        url: crudServiceBaseUrl + "/BindingIn",
+                        type: "POST"
+                    },
+                    parameterMap: function (options, operation) {
+                        if (operation !== "read" && options.models) {
+                            return { models: kendo.stringify(options.models) };
+                        }
+                    }
+                },
+                batch: true,
+                pageSize: 30,
+                schema: {
+                    model: {
+                        id: "id",
+                        fields: {
+                            id: { editable: false },
+                            date: { type: "date", nullable: true, format: "{0:dd/MM/yyyy}" },
+                            waste: { type: "string" },
+                            source: { type: "string" },
+                            id_waste: {},
+                            id_source: {},
+                            no_kemasan: { type: "string" },
+                            kemasan: {},
+                            volume_weight: {},
+                            internal_document: {},
+                            max_penyimpanan: { type: "date", nullable: true, format: "{0:dd/MM/yyyy}" },
+                            type: {}
+                        }
+                    }
+                },
+                pageSize: 10
+            });
+
+        var dataSourceOut = new kendo.data.DataSource({
+            transport: {
+                read: {
+                    url: crudServiceBaseUrl + "/BindingOut",
+                    type: "POST"
+                },
+                parameterMap: function (options, operation) {
+                    if (operation !== "read" && options.models) {
+                        return { models: kendo.stringify(options.models) };
+                    }
+                }
+            },
+            batch: true,
+            pageSize: 30,
+            schema: {
+                model: {
+                    id: "id",
+                    fields: {
+                        id: { editable: false },
+                        date: { type: "date", nullable: true, format: "{0:dd/MM/yyyy}" },
+                        waste: { type: "string" },
+                        id_waste: {},
+                        kemasan: {},
+                        volume_weight: {},
+                        internal_document: {},
+                        external_document: {},
+                        tujuan: {},
+                        type: {}
+                    }
+                }
+            },
+            pageSize: 10
+        });
+
+        $("#grid-hazard-in").kendoGrid({
+            dataSource: dataSourceIn,
+            pageable: true,
+            sortable: true,
+            filterable: true,
+            columns: [
+                { field: "date", title: "Date", type: "date", width: 125, format: "{0:dd/MM/yyyy}" },
+                { field: "waste", title: "Waste & Code", width: 175 },
+                { field: "source", title: "Source", width: 175 },
+                { field: "no_kemasan", title: "Package No.", width: 90 },
+                { field: "kemasan", title: "Package(s)", width: 90 },
+                { field: "volume_weight", title: "Volume/Weight", width: 90 },
+                { field: "internal_document", title: "Document No.", width: 125 },
+                {
+                    command: [
+                        {
+                            name: "Edit",
+                            click: editHazardIn
+                        },
+                        {
+                            name: "Delete",
+                            click: deleteHazardIn
+                        },
+                    ],
+                    editable: {
+                        destroy: false
+                    },
+                    width: 180
+                }
+            ],
+            height: 400
+        });
+
+        $("#grid-hazard-out").kendoGrid({
+            dataSource: dataSourceOut,
+            pageable: true,
+            sortable: true,
+            filterable: true,
+            columns: [
+                { field: "date", title: "Date", type: "date", width: 125, format: "{0:dd/MM/yyyy}" },
+                { field: "waste", title: "Waste & Code", width: 175 },
+                { field: "kemasan", title: "Package(s)", width: 90 },
+                { field: "volume_weight", title: "Volume/Weight", width: 90 },
+                { field: "tujuan", title: "Tujuan", width: 150 },
+                { field: "external_document", title: "External Document No.", width: 125 },
+                { field: "internal_document", title: "Internal Document No.", width: 125 },
+                {
+                    command: [
+                        {
+                            name: "Edit",
+                            click: editHazardOut
+                        },
+                        {
+                            name: "Delete",
+                            click: deleteHazardOut
+                        },
+                    ],
+                    editable: {
+                        destroy: false
+                    },
+                    width: 180
+                }
+            ],
+            height: 400
+        });
+    });
+
+    function getDataRowGridIn(e) {
+        return $(e.target).closest("tr");
+    }
+
+    function createHazard() {
+        $('#content').load('HazardousRecord/Create');
+    }
+
+    function editHazardIn(e) {
+        var data = this.dataItem(getDataRowGridIn(e));
+        $('#content').load('HazardousRecord/Edit/', { id: data.id });
+    }
+
+    function deleteHazardIn(e) {
+        var confirmWd = confirm("Are you sure want to delete this record ?");
+        if (confirmWd == true) {
+            var data = this.dataItem(getDataRowGridOut(e));
+            $.ajax({
+                url: 'HazardousRecord/Delete',
+                type: 'post',
+                dataType: 'json',
+                data: { id: data.id },
+                success: function (data) {
+                    if (data) {
+                        $("#grid-hazard-in").data("kendoGrid").dataSource.read();;
+                    }
+                }
+            });
+        }
+    }
+
+    function getDataRowGridOut(e) {
+        return $(e.target).closest("tr");
+    }
+
+    function editHazardOut(e) {
+        var data = this.dataItem(getDataRowGridOut(e));
+        $('#content').load('HazardousRecord/Edit/', { id: data.id });
+    }
+
+    function deleteHazardOut(e) {
+        var confirmWd = confirm("Are you sure want to delete this record ?");
+        if (confirmWd == true) {
+            var data = this.dataItem(getDataRowGridOut(e));
+            $.ajax({
+                url: 'HazardousRecord/Delete',
+                type: 'post',
+                dataType: 'json',
+                data: { id: data.id },
+                success: function (data) {
+                    if (data) {
+                        $("#grid-hazard-out").data("kendoGrid").dataSource.read();;
+                    }
+                }
+            });
+        }
+    }
+</script>

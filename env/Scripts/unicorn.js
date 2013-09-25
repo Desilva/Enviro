@@ -139,15 +139,52 @@ function addHandlerMenu() {
         setActiveMenu('home');
     });
 
+    $('#sources-waste').click(function () {
+        $('#content').load('SourceWaste/Index');
+        document.title = "Enviro - Sources of Waste";
+        setActiveHomeMenu('sources-waste');
+    });
+
+    $('#waste').click(function () {
+        $('#content').load('Waste/Index');
+        document.title = "Enviro - Waste";
+        setActiveHomeMenu('waste');
+    });
+
+    $('#unit').click(function () {
+        $('#content').load('WasteUnit/Index');
+        document.title = "Enviro - Waste Unit";
+        setActiveHomeMenu('unit');
+    });
+
+    $('#type-waste').click(function () {
+        $('#content').load('TypeWaste/Index');
+        document.title = "Enviro - Type of Waste";
+        setActiveHomeMenu('type-waste');
+    });
+
+    $('#hazardous-waste').click(function () {
+        $('#content').load('HazardousRecord/Index');
+        document.title = "Enviro - Hazardous Waste Record";
+        setActiveWasteMenu('hazardous-waste');
+    });
+
     $('.content-config').click(function () {
         $('#content').load('admin/Config');
         setActiveMenu('home');
     });
-    setActiveMenu('home');
+    //setActiveMenu('home');
 }
 
-function setActiveMenu(id) {
-    $('#home').removeClass('active');
+function setActiveHomeMenu(id) {
+    $('.active').removeClass('active');
+    $('#home').addClass('active');
+    $('#' + id).addClass('active');
+}
+
+function setActiveWasteMenu(id) {
+    $('.active').removeClass('active');
+    $('#waste-data').addClass('active');
     $('#' + id).addClass('active');
 }
 

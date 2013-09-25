@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f7a16b61704e4c41a89e49cd973dac1c" Name="Diagram1">
+        <EntityTypeShape EntityType="star_energy_enviroModel.source_of_waste" Width="1.5" PointX="0.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="star_energy_enviroModel.type_of_waste" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="star_energy_enviroModel.waste_hazardous" Width="1.5" PointX="0.75" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="star_energy_enviroModel.satuan_unit" Width="1.5" PointX="5.3482928598990167" PointY="17.917256304024374" />
+        <EntityTypeShape EntityType="star_energy_enviroModel.hazardous_record" Width="1.5" PointX="7.104894410402" PointY="14.232691100906903" />
+        <AssociationConnector Association="star_energy_enviroModel.FK_hazardous_record_satuan_unit" />
+        <AssociationConnector Association="star_energy_enviroModel.FK_hazardous_record_source_of_waste" />
+        <AssociationConnector Association="star_energy_enviroModel.FK_hazardous_record_waste_hazardous" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

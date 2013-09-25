@@ -205,30 +205,12 @@ input[type="file"]
     width:auto !important;
 }
 
-/* --------------------START radiography------------------------- */
-
-.radigraphy-title 
-{
-    text-align:center;
+/* new */
+.in-record {
+    display:none;
 }
 
-.radigraphy-number
-{
-    text-align:right;
+.out-record {
+    display:none;
 }
 
-.radio-title-form 
-{
-    text-align:center;
-}
-
-.radiography-select 
-{
-    width:75px;
-}
-
-/* --------------------END radiography------------------------- */
-
-.k-upload-files {
-    width : 79%;
-}

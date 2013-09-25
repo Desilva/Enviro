@@ -1,0 +1,230 @@
+﻿@model env.Models.hazardous_record
+<div id="content-header">
+	<h1>Hazardous Waste Record</h1>
+</div>
+<div id="breadcrumb">
+	<a href="#"><i class="icon-home"></i> Waste Record</a>
+	<a href="#" class="current">Hazardous Waste Record</a>
+</div><br />
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span12">
+	        <div class="widget-box">
+		        <div class="widget-title">
+			        <span class="icon">
+				        <i class="icon-align-justify"></i>									
+			        </span>
+			        <h5>Hazardous Waste Record</h5>
+		        </div>
+		        <div class="widget-content nopadding">
+			        <form id="form-record" class="form-horizontal">
+                        <input id="id" type="hidden" value="@Model.id"/>
+                        <div class="control-group">
+					        <label class="control-label">In / Out</label>
+					        <div class="controls">
+						        <label><input type="radio" name="inout_record" id="in_record" value="0" @(Model != null && Model.type == 0 ? "checked" : "style='display:none'") /> In</label>
+			                    <label><input type="radio" name="inout_record" id="out_record" value="1" @(Model != null && Model.type == 1 ? "checked" : "style='display:none'") /> Out</label>
+					        </div>
+				        </div>
+                        <div class="in-record">
+                            <div class="control-group">
+					            <label class="control-label">Date</label>
+					            <div class="controls">
+						            <input id="date-in" value="@(Model.date == null ? DateTime.Now.Date : Model.date.Value.Date)" style="width:150px;" />
+					            </div>
+				            </div>
+                            <div class="control-group">
+					            <label class="control-label">Waste</label>
+					            <div class="controls">
+						            @Html.DropDownListFor(p => p.id_waste, ViewBag.waste as IEnumerable<SelectListItem>, new { id = "waste-in" })
+					            </div>
+				            </div>
+                            <div class="control-group">
+					            <label class="control-label">Source</label>
+					            <div class="controls">
+						            @Html.DropDownListFor(p => p.id_source, ViewBag.source as IEnumerable<SelectListItem>, new { id = "source-in" })
+					            </div>
+				            </div>
+				            <div class="control-group">
+					            <label class="control-label">No Kemasan</label>
+					            <div class="controls">
+						            <input type="text" id="no-kemasan-in" value="@(Model != null ? Model.no_kemasan : "")" class="form-control input-sm" />
+					            </div>
+				            </div>
+                            <div class="control-group">
+					            <label class="control-label">Kemasan</label>
+					            <div class="controls">
+						            <input type="text" id="kemasan-in" value="@(Model != null ? Model.kemasan : "")" class="form-control input-sm" />
+					            </div>
+				            </div>
+                            <div class="control-group">
+					            <label class="control-label">Volume / Weight</label>
+					            <div class="controls">
+                                    <div class="input-append">
+                                        <input type="number" id="volume-in" value="@(Model != null ? Model.volume_weight : "")"  min="0" max="10000000000" class="form-control input-sm" />
+                                        @Html.DropDownListFor(p => p.id_satuan, ViewBag.satuan as IEnumerable<SelectListItem>, new { id = "satuan-in", style="width:75px" })
+                                    </div>
+					            </div>
+				            </div>
+                            <div class="control-group">
+					            <label class="control-label">Document No.</label>
+					            <div class="controls">
+						            <input type="text" id="document-in" value="@(Model != null ? Model.internal_document : "")" class="form-control input-sm" />
+					            </div>
+				            </div>
+				            <div class="form-actions">
+                                <button id="back-in" type="button" class="btn btn-primary">Back</button>
+					            <button id="submit-in" type="button" class="btn btn-primary">Save</button>
+				            </div>
+                        </div>
+                        <div class="out-record">
+                            <div class="control-group">
+					            <label class="control-label">Date</label>
+					            <div class="controls">
+						            <input id="date-out" value="@(Model.date == null ? DateTime.Now.Date : Model.date.Value.Date)" style="width:150px;" />
+					            </div>
+				            </div>
+                            <div class="control-group">
+					            <label class="control-label">Waste</label>
+					            <div class="controls">
+						            @Html.DropDownListFor(p => p.id_waste, ViewBag.waste as IEnumerable<SelectListItem>, new { id = "waste-out" })
+					            </div>
+				            </div>
+				            <div class="control-group">
+					            <label class="control-label">Kemasan</label>
+					            <div class="controls">
+						            <input type="text" id="kemasan-out" value="@(Model != null ? Model.kemasan : "")" class="form-control input-sm" />
+					            </div>
+				            </div>
+                            <div class="control-group">
+					            <label class="control-label">Volume / Weight</label>
+					            <div class="controls">
+						            <input type="number" id="volume-out" value="@(Model != null ? Model.volume_weight : "")"  min="0" max="10000000000" class="form-control input-sm" />
+                                    @Html.DropDownListFor(p => p.id_satuan, ViewBag.satuan as IEnumerable<SelectListItem>, new { id = "satuan-out", style="width:75px" })
+					            </div>
+				            </div>
+                            <div class="control-group">
+					            <label class="control-label">Tujuan</label>
+					            <div class="controls">
+						            <input type="text" id="tujuan-out" value="@(Model != null ? Model.tujuan : "")" class="form-control input-sm" />
+					            </div>
+				            </div>
+                            <div class="control-group">
+					            <label class="control-label">External Document No.</label>
+					            <div class="controls">
+						            <input type="text" id="ex-document-out" value="@(Model != null ? Model.external_document : "")" class="form-control input-sm" />
+					            </div>
+				            </div>
+                            <div class="control-group">
+					            <label class="control-label">Internal Document No.</label>
+					            <div class="controls">
+						            <input type="text" id="in-document-out" value="@(Model != null ? Model.internal_document : "")" class="form-control input-sm" />
+					            </div>
+				            </div>
+				            <div class="form-actions">
+                                <button id="back-out" type="button" class="btn btn-primary">Back</button>
+					            <button id="submit-out" type="button" class="btn btn-primary">Save</button>
+				            </div>
+                        </div>
+			        </form>
+		        </div>
+	        </div>
+        </div>
+    </div>		
+ </div>
+<script>
+    $(document).ready(function () {
+        $('input[type=checkbox],input[type=radio]').uniform();
+        $('#waste-in,#source-in,#waste-out').select2();
+
+        
+        $('#in_record').click(function () {
+            $('.in-record').show();
+            $('.out-record').hide();
+        });
+
+        $('#out_record').click(function () {
+            $('.out-record').show();
+            $('.in-record').hide();
+        });
+        $('#in_record:checked').trigger("click");
+        $('#out_record:checked').trigger("click");
+
+        $("#date-in").kendoDatePicker();
+        $("#date-out").kendoDatePicker();
+
+        $('#submit-in').click(function () {
+
+            var id = $('#id').val(),
+                url = 'HazardousRecord/Create',
+                data = {
+                    'date': $('#date-in').val(),
+                    'id_waste': $('#waste-in').val(),
+                    'id_source': $('#source-in').val(),
+                    'no_kemasan': $('#no-kemasan-in').val(),
+                    'kemasan': $('#kemasan-in').val(),
+                    'volume_weight': $('#volume-in').val(),
+                    'id_satuan': $('#satuan-in').val(),
+                    'internal_document': $('#document-in').val(),
+                    'type': '0'
+                };
+
+            if (id != '0') {
+                data['id'] = id;
+                url = 'HazardousRecord/EditAjax'
+            }
+
+            $.ajax({
+                url: url,
+                type: 'post',
+                dataType: 'json',
+                data: data,
+                success: function (data) {
+                    if (data) {
+                        alert('Save success');
+                        $('#content-hazard').load('HazardousRecord/Index');
+                    }
+                }
+            });
+        });
+
+        $('#submit-out').click(function () {
+
+            var id = $('#id').val(),
+                url = 'HazardousRecord/Create',
+                data = {
+                    'date': $('#date-out').val(),
+                    'id_waste': $('#waste-out').val(),
+                    'kemasan': $('#kemasan-out').val(),
+                    'volume_weight': $('#volume-out').val(),
+                    'id_satuan': $('#satuan-out').val(),
+                    'tujuan': $('#tujuan-out').val(),
+                    'external_document': $('#ex-document-out').val(),
+                    'internal_document': $('#in-document-out').val(),
+                    'type': '1'
+                };
+
+            if (id != '0') {
+                data['id'] = id;
+                url = 'HazardousRecord/EditAjax'
+            }
+
+            $.ajax({
+                url: url,
+                type: 'post',
+                dataType: 'json',
+                data: data,
+                success: function (data) {
+                    if (data) {
+                        alert('Save success');
+                        $('#content').load('HazardousRecord/Index');
+                    }
+                }
+            });
+        });
+
+        $('#back-in,#back-out').click(function () {
+            $('#content').load('HazardousRecord/Index');
+        });
+    });
+</script>
