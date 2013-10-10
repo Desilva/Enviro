@@ -26,6 +26,7 @@ namespace env.Models
         public string tujuan { get; set; }
         public string external_document { get; set; }
         public Nullable<int> id_satuan { get; set; }
+        public Nullable<System.DateTime> max_penyimpanan { get; set; }
     
         public virtual satuan_unit satuan_unit { get; set; }
         public virtual source_of_waste source_of_waste { get; set; }

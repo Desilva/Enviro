@@ -40,8 +40,9 @@ namespace env.Controllers
                     date = hazard.date,
                     no_kemasan = hazard.no_kemasan,
                     kemasan = hazard.kemasan,
-                    volume_weight = hazard.volume_weight,
-                    internal_document = hazard.internal_document
+                    volume_weight = hazard.volume_weight + " " + db.satuan_unit.Find(hazard.id_satuan).satuan,
+                    internal_document = hazard.internal_document,
+                    max_penyimpanan = hazard.max_penyimpanan
                 };
                 result.Add(temp);
             }
@@ -64,7 +65,7 @@ namespace env.Controllers
                     waste = hazard.waste_hazardous.name + " (" + hazard.waste_hazardous.waste_code + ")",
                     date = hazard.date,
                     kemasan = hazard.kemasan,
-                    volume_weight = hazard.volume_weight,
+                    volume_weight = hazard.volume_weight + " " + db.satuan_unit.Find(hazard.id_satuan).satuan,
                     internal_document = hazard.internal_document,
                     tujuan = hazard.tujuan,
                     external_document = hazard.external_document
@@ -85,6 +86,10 @@ namespace env.Controllers
         [HttpPost, ValidateInput(false)]
         public ActionResult Create(hazardous_record hazard)
         {
+            if (hazard.type == 0)
+            {
+                hazard.max_penyimpanan = hazard.date.Value.AddDays(90);
+            }
             db.hazardous_record.Add(hazard);
             db.SaveChanges();
             return Json(true);
@@ -104,6 +109,10 @@ namespace env.Controllers
         {
             if (ModelState.IsValid)
             {
+                if (hazard.type == 0)
+                {
+                    hazard.max_penyimpanan = hazard.date.Value.AddDays(90);
+                }
                 db.Entry(hazard).State = EntityState.Modified;
                 db.SaveChanges();
                 return Json(true);

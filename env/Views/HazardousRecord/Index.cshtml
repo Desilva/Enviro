@@ -9,7 +9,7 @@
 <div id="breadcrumb">
 	<a href="#"><i class="icon-home"></i> Waste Record</a>
 	<a href="#" class="current">Hazardous Waste Record</a>
-</div><br />
+</div>
 <div id="content-hazard">
     <div class="container-fluid">
         <div class="row-fluid">
@@ -134,10 +134,31 @@
                 { field: "date", title: "Date", type: "date", width: 125, format: "{0:dd/MM/yyyy}" },
                 { field: "waste", title: "Waste & Code", width: 175 },
                 { field: "source", title: "Source", width: 175 },
-                { field: "no_kemasan", title: "Package No.", width: 90 },
-                { field: "kemasan", title: "Package(s)", width: 90 },
-                { field: "volume_weight", title: "Volume/Weight", width: 90 },
-                { field: "internal_document", title: "Document No.", width: 125 },
+                {
+                    field: "no_kemasan", title: "Package No.", width: 100, headerAttributes: {
+                        "class": "wrap-text"
+                    }
+                },
+                {
+                    field: "kemasan", title: "Package(s)", width: 115, headerAttributes: {
+                        "class": "wrap-text"
+                    }
+                },
+                {
+                    field: "volume_weight", title: "Volume / Weight", width: 110, headerAttributes: {
+                        "class": "wrap-text"
+                    }
+                },
+                {
+                    field: "internal_document", title: "Document No.", width: 125, headerAttributes: {
+                        "class": "wrap-text"
+                    }
+                },
+                {
+                    field: "max_penyimpanan", title: "Max Saving Date", type: "date", width: 125, format: "{0:dd/MM/yyyy}", headerAttributes: {
+                        "class": "wrap-text"
+                    }
+                },
                 {
                     command: [
                         {
@@ -166,11 +187,23 @@
             columns: [
                 { field: "date", title: "Date", type: "date", width: 125, format: "{0:dd/MM/yyyy}" },
                 { field: "waste", title: "Waste & Code", width: 175 },
-                { field: "kemasan", title: "Package(s)", width: 90 },
-                { field: "volume_weight", title: "Volume/Weight", width: 90 },
+                { field: "kemasan", title: "Package(s)", width: 115 },
+                {
+                    field: "volume_weight", title: "Volume / Weight", width: 110, headerAttributes: {
+                        "class": "wrap-text"
+                    }
+                },
                 { field: "tujuan", title: "Tujuan", width: 150 },
-                { field: "external_document", title: "External Document No.", width: 125 },
-                { field: "internal_document", title: "Internal Document No.", width: 125 },
+                {
+                    field: "external_document", title: "External Document No.", width: 150, headerAttributes: {
+                        "class": "wrap-text"
+                    }
+                },
+                {
+                    field: "internal_document", title: "Internal Document No.", width: 150, headerAttributes: {
+                        "class": "wrap-text"
+                    }
+                },
                 {
                     command: [
                         {
@@ -216,7 +249,7 @@
                 data: { id: data.id },
                 success: function (data) {
                     if (data) {
-                        $("#grid-hazard-in").data("kendoGrid").dataSource.read();;
+                        $("#grid-hazard-in").data("kendoGrid").dataSource.read();
                     }
                 }
             });

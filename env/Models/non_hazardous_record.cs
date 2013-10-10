@@ -12,16 +12,15 @@ namespace env.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class type_of_waste
+    public partial class non_hazardous_record
     {
-        public type_of_waste()
-        {
-            this.non_hazardous_record = new HashSet<non_hazardous_record>();
-        }
-    
         public int id { get; set; }
-        public string name { get; set; }
+        public Nullable<System.DateTime> date { get; set; }
+        public Nullable<int> id_type { get; set; }
+        public Nullable<double> waste_in { get; set; }
+        public Nullable<double> waste_out { get; set; }
+        public Nullable<double> recycle_rate { get; set; }
     
-        public virtual ICollection<non_hazardous_record> non_hazardous_record { get; set; }
+        public virtual type_of_waste type_of_waste { get; set; }
     }
 }

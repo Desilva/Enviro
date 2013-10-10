@@ -26,9 +26,10 @@ namespace env.Models
         }
     
         public DbSet<source_of_waste> source_of_waste { get; set; }
-        public DbSet<type_of_waste> type_of_waste { get; set; }
         public DbSet<waste_hazardous> waste_hazardous { get; set; }
-        public DbSet<hazardous_record> hazardous_record { get; set; }
         public DbSet<satuan_unit> satuan_unit { get; set; }
+        public DbSet<type_of_waste> type_of_waste { get; set; }
+        public DbSet<hazardous_record> hazardous_record { get; set; }
+        public DbSet<non_hazardous_record> non_hazardous_record { get; set; }
     }
 }
