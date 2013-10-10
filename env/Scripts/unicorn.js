@@ -186,6 +186,12 @@ function addHandlerMenu() {
         document.title = "Enviro - Hazardous Waste Annual Report";
         setActiveReportMenu('hazard-year-report');
     });
+
+    $('#non-hazard-report').click(function () {
+        $('#content').load('NonHazardousReport/Index');
+        document.title = "Enviro - Non Hazardous Recycle Rate Report";
+        setActiveReportMenu('non-hazard-report');
+    });
 }
 
 function setActiveHomeMenu(id) {

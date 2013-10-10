@@ -219,8 +219,7 @@ namespace env.Report
             // 
             // Month
             // 
-            this.Month.ConnectionString = "Data Source=SEPTU-PC\\SQLEXPRESS;Initial Catalog=star_energy_enviro;Integrated Sec" +
-    "urity=True;MultipleActiveResultSets=True;Application Name=EntityFramework";
+            this.Month.ConnectionString = "starenergyenviro";
             this.Month.Name = "Month";
             this.Month.ProviderName = "System.Data.SqlClient";
             this.Month.SelectCommand = "with mnth(mnnum) as(\r\n\tselect 1\r\n\tunion all\r\n\tselect mnnum+1 from mnth where mnnu" +
@@ -228,8 +227,7 @@ namespace env.Report
             // 
             // Year
             // 
-            this.Year.ConnectionString = "Data Source=SEPTU-PC\\SQLEXPRESS;Initial Catalog=star_energy_enviro;Integrated Sec" +
-    "urity=True;MultipleActiveResultSets=True;Application Name=EntityFramework";
+            this.Year.ConnectionString = "starenergyenviro";
             this.Year.Name = "Year";
             this.Year.ProviderName = "System.Data.SqlClient";
             this.Year.SelectCommand = "with yeer(yrnum) as (\r\n\tselect 2000\r\n\tunion all\r\n\tselect yrnum+1 from yeer where " +
@@ -602,8 +600,7 @@ namespace env.Report
             // 
             // MonthlyReport
             // 
-            this.MonthlyReport.ConnectionString = "Data Source=SEPTU-PC\\SQLEXPRESS;Initial Catalog=star_energy_enviro;Integrated Sec" +
-    "urity=True;MultipleActiveResultSets=True;Application Name=EntityFramework";
+            this.MonthlyReport.ConnectionString = "starenergyenviro";
             this.MonthlyReport.Name = "MonthlyReport";
             this.MonthlyReport.Parameters.AddRange(new Telerik.Reporting.SqlDataSourceParameter[] {
             new Telerik.Reporting.SqlDataSourceParameter("@month", System.Data.DbType.String, "=Parameters.month.Value"),

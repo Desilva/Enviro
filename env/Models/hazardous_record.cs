@@ -20,7 +20,7 @@ namespace env.Models
         public Nullable<int> id_source { get; set; }
         public string no_kemasan { get; set; }
         public string kemasan { get; set; }
-        public string volume_weight { get; set; }
+        public Nullable<double> volume_weight { get; set; }
         public string internal_document { get; set; }
         public Nullable<byte> type { get; set; }
         public string tujuan { get; set; }
