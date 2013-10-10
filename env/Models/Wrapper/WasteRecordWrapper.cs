@@ -17,7 +17,7 @@ namespace env.Models.Wrapper
         public string kemasan { get; set; }
         public string volume_weight { get; set; }
         public string internal_document { get; set; }
-        public DateTime max_penyimpanan { get; set; }
+        public Nullable<DateTime> max_penyimpanan { get; set; }
         public byte type = 0;
     }
 
@@ -33,5 +33,17 @@ namespace env.Models.Wrapper
         public string external_document { get; set; }
         public string internal_document { get; set; }
         public byte type = 1;
+    }
+
+    public class NonHazardousWasteRecordWrapper
+    {
+        public int id { get; set; }
+        public Nullable<System.DateTime> date { get; set; }
+        public Nullable<int> id_type { get; set; }
+        public Nullable<Double> waste_in { get; set; }
+        public Nullable<Double> waste_out { get; set; }
+        public Nullable<double> recycle_rate { get; set; }
+
+        public TypeWasteWrapper type_name { get; set; }
     }
 }

@@ -169,11 +169,23 @@ function addHandlerMenu() {
         setActiveWasteMenu('hazardous-waste');
     });
 
-    $('.content-config').click(function () {
-        $('#content').load('admin/Config');
-        setActiveMenu('home');
+    $('#non-hazardous-waste').click(function () {
+        $('#content').load('NonHazardousRecord/Index');
+        document.title = "Enviro - Non Hazardous Waste Record";
+        setActiveWasteMenu('non-hazardous-waste');
     });
-    //setActiveMenu('home');
+
+    $('#hazard-month-report').click(function () {
+        $('#content').load('HazardousMonthReport/Index');
+        document.title = "Enviro - Hazardous Waste Monthly Report";
+        setActiveReportMenu('hazard-month-report');
+    });
+
+    $('#hazard-year-report').click(function () {
+        $('#content').load('HazardousAnnualReport/Index');
+        document.title = "Enviro - Hazardous Waste Annual Report";
+        setActiveReportMenu('hazard-year-report');
+    });
 }
 
 function setActiveHomeMenu(id) {
@@ -185,6 +197,12 @@ function setActiveHomeMenu(id) {
 function setActiveWasteMenu(id) {
     $('.active').removeClass('active');
     $('#waste-data').addClass('active');
+    $('#' + id).addClass('active');
+}
+
+function setActiveReportMenu(id) {
+    $('.active').removeClass('active');
+    $('#waste-report').addClass('active');
     $('#' + id).addClass('active');
 }
 
