@@ -60,7 +60,7 @@ namespace env.Models.Wrapper
 
     public class GraphicReportWrapper
     {
-        public Nullable<System.DateTime> date { get; set; }
+        public string date { get; set; }
         public string lokasi_sampling { get; set; }
         public string graphic_parameter { get; set; }
         public string hasil_analisis { get; set; }

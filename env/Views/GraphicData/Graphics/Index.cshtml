@@ -136,7 +136,9 @@
                             filterable: true,
                             toolbar: [
                                 { name: "create" },
-                                { command: { text: "Export Data", click: exportData }, title: "Export Data of @Model.name", width: "140px", name: "export" }
+                                {
+                                    template: '<a class="k-button" href="\\#" onclick="return exportData()">Export Data</a>'
+                                }
                             ],
                             columns: [
                                 { field: "id", hidden: true },
@@ -233,19 +235,6 @@
                             });
                         }
 
-                        function exportData(e) {
-                            e.preventDefault();
-                            $.ajax({
-                                url: "Graphics/ExportData?id=@Model.id",
-                                type: 'get',
-                                dataType: 'json',
-                                data: {},
-                                success: function (data) {
-                                    // do nothing
-                                }
-                            });
-                        }
-
                         document.title = "Enviro - @Model.name Environmental Monitoring Data";
                         unload();
                     }
@@ -254,6 +243,10 @@
         });
 
         
+    }
+
+    function exportData() {
+        window.location = '/Graphics/ExportData?id=@Model.id';
     }
 
     function getLokasi(id_lokasi) {

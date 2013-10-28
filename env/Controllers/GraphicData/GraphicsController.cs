@@ -124,20 +124,19 @@ namespace env.Controllers.GraphicData
         public ActionResult ExportData(int id)
         {
             List<GraphicReportWrapper> result = new List<GraphicReportWrapper>();
-            List<GraphicDataWrapper> results = GraphicWrapper.All(p => p.date, id);
+            List<GraphicDataWrapper> results = GraphicWrapper.All(p => p.date, id).OrderBy(p => p.date).ThenBy(p => p.lokasi_sampling).ToList();
             graphic_type gt = db.graphic_type.Find(id); 
             foreach (GraphicDataWrapper gdw in results)
             {
                 GraphicReportWrapper rep = new GraphicReportWrapper
                 {
-                    date = gdw.date,
+                    date = gdw.date != null ? gdw.date.Value.ToShortDateString() : "",
                     lokasi_sampling = gdw.lokasi_sampling.name,
                     graphic_parameter = gdw.graphic_parameter.name,
                     hasil_analisis = (gdw.is_galat == 1 ? "< " : "") + gdw.hasil_analisis
                 };
+                result.Add(rep);
             }
-
-            result = result.OrderBy(p => p.date).ThenBy(p => p.lokasi_sampling).ToList();
             GridView gv = new GridView();
             gv.Caption = "" + gt.name;
             gv.DataSource = result;
