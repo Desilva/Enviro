@@ -133,6 +133,20 @@ $(document).ready(function(){
 	});
 });
 
+function loading() {
+    $('.overlay').fadeIn();
+    var left = (screen.width / 2) - (128 / 2);
+    var top = (screen.height / 2) - (128 / 2);
+    $('.loading-wrapper').css('top', top);
+    $('.loading-wrapper').css('left', left);
+    $('.loading-wrapper').fadeIn();
+}
+
+function unload() {
+    $('.overlay').fadeOut();
+    $('.loading-wrapper').fadeOut();
+}
+
 function addHandlerMenu() {
     $('.content-setting').click(function () {
         $('#content').load('admin/PartialIndex');
@@ -140,54 +154,99 @@ function addHandlerMenu() {
     });
 
     $('#sources-waste').click(function () {
+        loading();
         $('#content').load('SourceWaste/Index');
         document.title = "Enviro - Sources of Waste";
         setActiveHomeMenu('sources-waste');
+        
     });
 
     $('#waste').click(function () {
+        loading();
         $('#content').load('Waste/Index');
         document.title = "Enviro - Waste";
         setActiveHomeMenu('waste');
     });
 
     $('#unit').click(function () {
+        loading();
         $('#content').load('WasteUnit/Index');
         document.title = "Enviro - Waste Unit";
         setActiveHomeMenu('unit');
     });
 
+    $('#graphics').click(function () {
+        loading();
+        $('#content').load('GraphicType/Index');
+        document.title = "Enviro - Graphics";
+        setActiveHomeMenu('graphics');
+    });
+
+    $('#sampling-location').click(function () {
+        loading();
+        $('#content').load('GraphicsLokasi/Index');
+        document.title = "Enviro - Graphics Sampling Location";
+        setActiveHomeMenu('sampling-location');
+    });
+
+    $('#parameter').click(function () {
+        loading();
+        $('#content').load('GraphicsParameter/Index');
+        document.title = "Enviro - Graphics Parameter";
+        setActiveHomeMenu('parameter');
+    });
+
+    $('#graph-unit').click(function () {
+        loading();
+        $('#content').load('GraphicsUnit/Index');
+        document.title = "Enviro - Graphics Unit";
+        setActiveHomeMenu('graph-unit');
+    });
+
     $('#type-waste').click(function () {
+        loading();
         $('#content').load('TypeWaste/Index');
         document.title = "Enviro - Type of Waste";
         setActiveHomeMenu('type-waste');
     });
 
     $('#hazardous-waste').click(function () {
+        loading();
         $('#content').load('HazardousRecord/Index');
         document.title = "Enviro - Hazardous Waste Record";
         setActiveWasteMenu('hazardous-waste');
     });
 
     $('#non-hazardous-waste').click(function () {
+        loading();
         $('#content').load('NonHazardousRecord/Index');
         document.title = "Enviro - Non Hazardous Waste Record";
         setActiveWasteMenu('non-hazardous-waste');
     });
 
     $('#hazard-month-report').click(function () {
+        loading();
         $('#content').load('HazardousMonthReport/Index');
         document.title = "Enviro - Hazardous Waste Monthly Report";
         setActiveReportMenu('hazard-month-report');
     });
 
     $('#hazard-year-report').click(function () {
+        loading();
         $('#content').load('HazardousAnnualReport/Index');
         document.title = "Enviro - Hazardous Waste Annual Report";
         setActiveReportMenu('hazard-year-report');
     });
 
     $('#non-hazard-report').click(function () {
+        loading();
+        $('#content').load('NonHazardousReport/Index');
+        document.title = "Enviro - Non Hazardous Recycle Rate Report";
+        setActiveReportMenu('non-hazard-report');
+    });
+
+    $('#non-hazard-report').click(function () {
+        loading();
         $('#content').load('NonHazardousReport/Index');
         document.title = "Enviro - Non Hazardous Recycle Rate Report";
         setActiveReportMenu('non-hazard-report');
@@ -203,6 +262,18 @@ function setActiveHomeMenu(id) {
 function setActiveWasteMenu(id) {
     $('.active').removeClass('active');
     $('#waste-data').addClass('active');
+    $('#' + id).addClass('active');
+}
+
+function setActiveGraphicDataMenu(id) {
+    $('.active').removeClass('active');
+    $('#grafik-data').addClass('active');
+    $('#' + id).addClass('active');
+}
+
+function setActiveGraphicMenu(id) {
+    $('.active').removeClass('active');
+    $('#grafik').addClass('active');
     $('#' + id).addClass('active');
 }
 

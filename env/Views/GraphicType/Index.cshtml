@@ -1,0 +1,102 @@
+﻿@{
+    Layout = null;
+    ViewBag.Title = "Enviro - Graphics";
+    
+}
+<div id="content-header">
+	<h1>Graphics</h1>
+</div>
+<div id="breadcrumb">
+	<a href="#" title="Go to Master Data" class="tip-bottom home"><i class="icon-home"></i> Master Data</a>
+	<a href="#" class="current">Graphics</a>
+</div>
+<div class="container-fluid">
+    <div class="row-fluid">
+            <div class="span12">
+                <div class="widget-box">
+		            <div class="widget-title">
+			            <span class="icon">
+				            <i class="icon-align-justify"></i>
+			            </span>
+			            <h5>Graphics</h5>
+		            </div>
+		            <div class="widget-content nopadding">
+                        <div id="grid-graphics" class="span12"></div>
+		            </div>
+                </div>
+            </div>
+        </div>
+</div>
+<script>
+    $(document).ready(function () {
+        var crudServiceBaseUrl = "GraphicType",
+            dataSource = new kendo.data.DataSource({
+                transport: {
+                    read: {
+                        url: crudServiceBaseUrl + "/Binding",
+                        type: "POST"
+                    },
+                    update: {
+                        url: crudServiceBaseUrl + "/Edit",
+                        type: "POST"
+                    },
+                    destroy: {
+                        url: crudServiceBaseUrl + "/Delete",
+                        type: "POST"
+                    },
+                    create: {
+                        url: crudServiceBaseUrl + "/Create",
+                        type: "POST"
+                    },
+                    parameterMap: function (options, operation) {
+                        if (operation !== "read" && options.models) {
+                            var result = {};
+
+                            for (var i = 0; i < options.models.length; i++) {
+                                var product = options.models[i];
+
+                                for (var member in product) {
+                                    result["models[" + i + "]." + member] = product[member];
+                                }
+                            }
+
+                            return result;
+                        }
+                    }
+                },
+                batch: true,
+                pageSize: 30,
+                schema: {
+                    model: {
+                        id: "id",
+                        fields: {
+                            id: { editable: false },
+                            name: {},
+                            peraturan: {}
+                        }
+                    }
+                },
+                pageSize: 10
+            });
+
+        $("#grid-graphics").kendoGrid({
+            dataSource: dataSource,
+            pageable: true,
+            sortable: true,
+            filterable: true,
+            toolbar: ["create"],
+            columns: [
+                { field: "name", title: "Graphics Name", width: "200" },
+                { field: "peraturan", title: "Regulations" },
+                {
+                    command: ["edit", "destroy"],
+                    width: 192
+                }
+            ],
+            editable: "inline",
+            height: 400
+        });
+
+        unload();
+    });
+</script>

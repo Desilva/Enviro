@@ -61,7 +61,7 @@
 					            <label class="control-label">Volume / Weight</label>
 					            <div class="controls">
                                     <div class="input-append">
-                                        <input type="number" id="volume-in" value="@(Model != null ? Model.volume_weight : "")"  min="0" max="10000000000" class="form-control input-sm" />
+                                        <input type="number" id="volume-in" value="@(Model != null ? Model.volume_weight : 0)"  min="0" max="10000000000" class="form-control input-sm" />
                                         @Html.DropDownListFor(p => p.id_satuan, ViewBag.satuan as IEnumerable<SelectListItem>, new { id = "satuan-in", style="width:75px" })
                                     </div>
 					            </div>
@@ -99,7 +99,7 @@
                             <div class="control-group">
 					            <label class="control-label">Volume / Weight</label>
 					            <div class="controls">
-						            <input type="number" id="volume-out" value="@(Model != null ? Model.volume_weight : "")"  min="0" max="10000000000" class="form-control input-sm" />
+						            <input type="number" id="volume-out" value="@(Model != null ? Model.volume_weight : 0)"  min="0" max="10000000000" class="form-control input-sm" />
                                     @Html.DropDownListFor(p => p.id_satuan, ViewBag.satuan as IEnumerable<SelectListItem>, new { id = "satuan-out", style="width:75px" })
 					            </div>
 				            </div>
@@ -226,5 +226,7 @@
         $('#back-in,#back-out').click(function () {
             $('#content').load('HazardousRecord/Index');
         });
+
+        unload();
     });
 </script>

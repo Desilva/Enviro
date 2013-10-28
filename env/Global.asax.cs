@@ -1,4 +1,5 @@
-﻿using System;
+﻿using env.Utilities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -16,6 +17,10 @@ namespace env
     {
         protected void Application_Start()
         {
+            ViewEngines.Engines.Clear();
+            ViewEngines.Engines.Add(new MyRazorViewEngine());
+            ViewEngines.Engines.Add(new MyWebFormViewEngine());
+
             AreaRegistration.RegisterAllAreas();
 
             WebApiConfig.Register(GlobalConfiguration.Configuration);

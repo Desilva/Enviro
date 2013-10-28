@@ -24,7 +24,7 @@ namespace env.Controllers
 
         public JsonResult Binding()
         {
-            var a = db.non_hazardous_record.Include(p => p.type_of_waste);
+            var a = db.non_hazardous_record.Include(p => p.type_of_waste).OrderByDescending(p => p.date);
             List<NonHazardousWasteRecordWrapper> result = new List<NonHazardousWasteRecordWrapper>();
 
             foreach (non_hazardous_record non_hazard in a)

@@ -28,7 +28,7 @@ namespace env
                         "~/Scripts/jquery.uniform.js",
                         "~/Scripts/fullcalendar.js",
                         "~/Scripts/unicorn.js",
-                        "~/Scripts/kendo.all.js",
+                        "~/Scripts/kendo/kendo.web.js",
                         "~/Scripts/ckeditor/ckeditor.js",
                         "~/Scripts/select2.js"
                         ));

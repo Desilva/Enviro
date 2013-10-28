@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@{
+    List<env.Models.Wrapper.GraphicTypeWrapper> lgt = ViewBag.lgt as List<env.Models.Wrapper.GraphicTypeWrapper>;
+}
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -7,15 +10,12 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/app")
 </head>
 
 <body>
     <div id="header">
 		<h1><a href="Home">Enviro</a></h1>		
-		</div>
-		
-		<div id="search">
-			<input type="text" placeholder="Search here..."/><button type="submit" class="tip-right" title="Search"><i class="icon-search icon-white"></i></button>
 		</div>
 		<div id="user-nav" class="navbar navbar-inverse">
             <ul class="nav btn-group">
@@ -27,12 +27,16 @@
 		<div id="sidebar">
 			<ul>
 				<li id="home" class="submenu">
-					<a href="#"><i class="icon icon-th-list"></i> <span>Master Data</span> <span class="label">4</span></a>
+					<a href="#"><i class="icon icon-th-list"></i> <span>Master Data</span> <span class="label">8</span></a>
 					<ul>
                         <li id="sources-waste"><a href="#">Sources of Waste</a></li>
                         <li id="waste"><a href="#">Waste</a></li>
-                        <li id="type-waste"><a href="#">Type of Waste</a></li>
+                        <li id="type-waste"><a href="#">Type of Waste Non Hazardous</a></li>
                         <li id="unit"><a href="#">Waste Unit</a></li>
+                        <li id="graphics"><a href="#">Graphics</a></li>
+                        <li id="sampling-location"><a href="#">Graphics Sampling Location</a></li>
+                        <li id="parameter"><a href="#">Graphics Parameter</a></li>
+                        <li id="graph-unit"><a href="#">Graphics Unit</a></li>
 					</ul>
 				</li>
                 <li id="waste-data" class="submenu open active">
@@ -50,12 +54,116 @@
                         <li id="non-hazard-report"><a href="#">Non Hazardous Recyle Rate Report</a></li>
 					</ul>
 				</li>
+                <li id="grafik-data" class="submenu">
+					<a href="#"><i class="icon icon-th-list"></i> <span>Environmental Monitoring Data</span> <span class="label">@lgt.Count</span></a>
+					<ul>
+                        @foreach (env.Models.Wrapper.GraphicTypeWrapper gt in lgt)
+                        {
+                            <li id="graph-@gt.id" class="type"><a href="#">@gt.name</a></li>
+                        }
+					</ul>
+				</li>
+                <li id="grafik" class="submenu">
+					<a href="#"><i class="icon icon-th-list"></i> <span>Environmental Monitoring</span> <span class="label">@lgt.Count</span></a>
+					<ul>
+                        @foreach (env.Models.Wrapper.GraphicTypeWrapper gt in lgt)
+                        {
+                            <li id="graphic-@gt.id" class="graph-type"><a href="#">@gt.name Graphic</a></li>
+                        }
+					</ul>
+				</li>
 			</ul>	
 		</div>
         <div id="content">
             @RenderBody()
         </div>
-        @Scripts.Render("~/bundles/app")
+        <div class="overlay" style="z-index:1000;display:none"></div>
+        <div class="loading-wrapper" style="z-index:1400;display:none">
+            <div id="loaderImage"></div>
+        </div>
+        
+        
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('.type').click(function () {
+                    var id = $(this).attr("id").substr(6);
+                    loading();
+                    $('#content').load('Graphics/Index?type='+id);
+                    setActiveGraphicDataMenu("graph-"+id);
+                });
+
+                $('.graph-type').click(function () {
+                    var id = $(this).attr("id").substr(8);
+                    loading();
+                    $('#content').load('Graphics/Graphic?type=' + id);
+                    setActiveGraphicMenu("graphic-" + id);
+                });
+            });
+
+            var cSpeed = 12;
+            var cWidth = 128;
+            var cHeight = 128;
+            var cTotalFrames = 8;
+            var cFrameWidth = 128;
+            var cImageSrc = 'Img/sprites.gif';
+
+            var cImageTimeout = false;
+            var cIndex = 0;
+            var cXpos = 0;
+            var cPreloaderTimeout = false;
+            var SECONDS_BETWEEN_FRAMES = 0;
+
+
+            function startAnimation() {
+
+                document.getElementById('loaderImage').style.backgroundImage = 'url(' + cImageSrc + ')';
+                document.getElementById('loaderImage').style.width = cWidth + 'px';
+                document.getElementById('loaderImage').style.height = cHeight + 'px';
+
+                //FPS = Math.round(100/(maxSpeed+2-speed));
+                FPS = Math.round(100 / cSpeed);
+                SECONDS_BETWEEN_FRAMES = 1 / FPS;
+
+                cPreloaderTimeout = setTimeout('continueAnimation()', SECONDS_BETWEEN_FRAMES / 1000);
+
+            }
+
+            function continueAnimation() {
+
+                cXpos += cFrameWidth;
+                //increase the index so we know which frame of our animation we are currently on
+                cIndex += 1;
+
+                //if our cIndex is higher than our total number of frames, we're at the end and should restart
+                if (cIndex >= cTotalFrames) {
+                    cXpos = 0;
+                    cIndex = 0;
+                }
+
+                if (document.getElementById('loaderImage'))
+                    document.getElementById('loaderImage').style.backgroundPosition = (-cXpos) + 'px 0';
+
+                cPreloaderTimeout = setTimeout('continueAnimation()', SECONDS_BETWEEN_FRAMES * 1000);
+            }
+
+            function stopAnimation() {//stops animation
+                clearTimeout(cPreloaderTimeout);
+                cPreloaderTimeout = false;
+            }
+
+            function imageLoader(s, fun)//Pre-loads the sprites image
+            {
+                clearTimeout(cImageTimeout);
+                cImageTimeout = 0;
+                genImage = new Image();
+                genImage.onload = function () { cImageTimeout = setTimeout(fun, 0) };
+                genImage.onerror = new Function('alert(\'Could not load the image\')');
+                genImage.src = s;
+            }
+
+            //The following code starts the animation
+            new imageLoader(cImageSrc, 'startAnimation()');
+        </script>
         @RenderSection("scripts", required: false)
 </body>
 </html>

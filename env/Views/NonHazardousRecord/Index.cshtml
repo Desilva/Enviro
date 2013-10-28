@@ -12,22 +12,79 @@
 </div>
 <div class="container-fluid">
     <div class="row-fluid">
-            <div class="span12">
-                <div class="widget-box">
-		            <div class="widget-title">
-			            <span class="icon">
-				            <i class="icon-align-justify"></i>									
-			            </span>
-			            <h5>Non Hazardous Waste Record</h5>
-		            </div>
-		            <div class="widget-content nopadding">
-                        <div id="grid-non-hazard" class="span12"></div>
-		            </div>
-                </div>
+        <div class="span12">
+            <div class="widget-box">
+		        <div class="widget-title">
+			        <span class="icon">
+				        <i class="icon-align-justify"></i>									
+			        </span>
+			        <h5>Non Hazardous Waste Record</h5>
+		        </div>
+		        <div class="widget-content nopadding">
+                    <div id="grid-non-hazard" class="span12"></div>
+		        </div>
             </div>
         </div>
+    </div>
+    <div class="row-fluid">
+        <div class="span6">
+            <div class="widget-box">
+		        <div class="widget-title">
+			        <span class="icon">
+				        <i class="icon-align-justify"></i>									
+			        </span>
+			        <h5>Import Non-Hazardous Waste Record From Excel</h5>
+		        </div>
+		        <div class="widget-content nopadding">
+                    <div class="container-fluid">
+                        @using (Html.BeginForm("Index", "UploadExcel", FormMethod.Post, new {id = "formUpload", enctype = "multipart/form-data", name = "formUpload", target = "upload_target" }))
+                        {
+                            <div class="row-fluid">
+		                        <div class="span12 info_inside_left">Excel File (.xls) :</div>
+                            </div>
+                            <div class="row-fluid">
+                                <div class="span12">
+                                    <input type="text" id="fileName" class="file_input_textbox" readonly="readonly" />
+                                    <div class="file_input_div" style="width:200px">
+			                            <input type="button" value="Browse" class="file_input_button btn btn-default" style="width: 75px;"/>
+			                            <input type="file" class="file_input_hidden" name="userfile" onchange="javascript: document.getElementById('fileName').value = this.value" />
+		                            </div>
+                                </div>
+                            </div>
+		                    <div class="row-fluid">
+                                <div class="span12">
+                                    <input type="button" class="btn btn-default" value="Upload" onclick="javascript: if (document.formUpload.userfile.value.length == 0) { alert('You must specify a file first.'); return; }; submit();" />
+                                </div>
+                            </div>
+                        }
+                        <br />
+                    </div>
+		        </div>
+            </div>
+        </div>
+        <div class="span6">
+            <div class="widget-box">
+		        <div class="widget-title">
+			        <span class="icon">
+				        <i class="icon-align-justify"></i>									
+			        </span>
+			        <h5>Error Log Import Excel</h5>
+		        </div>
+		        <div class="widget-content nopadding">
+                    <iframe id="upload_target" name="upload_target" src="" height="135" style="border:0px solid #fff;width:100%"></iframe>
+		        </div>
+            </div>
+        </div>
+    </div>
 </div>
 <script>
+    $('#upload_target').load(function () {
+        $("#grid-non-hazard").data("kendoGrid").dataSource.read();
+    });
+
+    var types = [];
+    loadTypes();
+
     $(document).ready(function () {
         var crudServiceBaseUrl = "NonHazardousRecord",
             dataSource = new kendo.data.DataSource({
@@ -88,7 +145,7 @@
                         fields: {
                             id: { editable: false },
                             date: { type: 'date', format: "{0:dd/MM/yyyy}" },
-                            type_name: { defaultValue: { id: 1, name: "Organik"} },
+                            id_type: { type:"number" },
                             waste_in : { type: 'number' },
                             waste_out : { type: 'number' },
                             recycle_rate: { type: 'number', editable: false }
@@ -107,7 +164,18 @@
             columns: [
                 { field: "id", hidden: true },
                 { field: "date", title: "Date", type: "date", width: 125, format: "{0:dd/MM/yyyy}" },
-                { field: "type_name", title: "Type of Waste", editor: typeDropDownEditor, template: "#=type_name.name#" },
+                {
+                    field: "id_type", title: "Type of Waste", editor: typeDropDownEditor, template: "#=getWasteType(id_type)#", filterable: {
+                        ui: typeFilter,
+                        operators: {
+                            number: {
+                                eq: "Is equal to",
+                                neq: "Is not equal to"
+                            }
+                        },
+                        extra: false,
+                    },
+                },
                 { field: "waste_in", title: "Waste In", width: 125 },
                 { field: "waste_out", title: "Waste Out", width: 125 },
                 { field: "recycle_rate", title: "Recycle Rate (%)", width: 140, format: "{0:n2}" },
@@ -130,5 +198,45 @@
                     }
                 });
         }
+
+        function typeFilter(element) {
+            element.kendoDropDownList({
+                dataTextField: "name",
+                dataValueField: "id",
+                dataSource: {
+                    transport: {
+                        dataType: "json",
+                        read: crudServiceBaseUrl + "/BindingDropDown"
+                    }
+                },
+                optionLabel: "--Select Value--",
+            });
+        }
+
+        unload();
     });
+
+    function getWasteType(type) {
+        for (var i = 0, length = types.length; i < length; i++) {
+            if (types[i].id == type) {
+                return types[i].name;
+            }
+        }
+    }
+
+    function loadTypes() {
+        $.ajax({
+            url: "NonHazardousRecord/BindingDropDown",
+            type: 'get',
+            dataType: 'json',
+            data: {},
+            success: function (data) {
+                if (data) {
+                    for (var a in data) {
+                        types.push(data[a]);
+                    }
+                }
+            }
+        });
+    }
 </script>
