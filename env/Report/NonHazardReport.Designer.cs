@@ -13,15 +13,16 @@ namespace env.Report
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NonHazardReport));
             Telerik.Reporting.GraphGroup graphGroup1 = new Telerik.Reporting.GraphGroup();
             Telerik.Reporting.GraphGroup graphGroup2 = new Telerik.Reporting.GraphGroup();
+            Telerik.Reporting.GraphGroup graphGroup5 = new Telerik.Reporting.GraphGroup();
             Telerik.Reporting.GraphTitle graphTitle1 = new Telerik.Reporting.GraphTitle();
             Telerik.Reporting.CategoryScale categoryScale1 = new Telerik.Reporting.CategoryScale();
             Telerik.Reporting.NumericalScale numericalScale1 = new Telerik.Reporting.NumericalScale();
+            Telerik.Reporting.CategoryScale categoryScale2 = new Telerik.Reporting.CategoryScale();
             Telerik.Reporting.NumericalScale numericalScale2 = new Telerik.Reporting.NumericalScale();
             Telerik.Reporting.GraphGroup graphGroup3 = new Telerik.Reporting.GraphGroup();
+            Telerik.Reporting.GraphGroup graphGroup4 = new Telerik.Reporting.GraphGroup();
             Telerik.Reporting.ReportParameter reportParameter1 = new Telerik.Reporting.ReportParameter();
             Telerik.Reporting.ReportParameter reportParameter2 = new Telerik.Reporting.ReportParameter();
-            Telerik.Reporting.ReportParameter reportParameter3 = new Telerik.Reporting.ReportParameter();
-            Telerik.Reporting.ReportParameter reportParameter4 = new Telerik.Reporting.ReportParameter();
             Telerik.Reporting.Drawing.StyleRule styleRule1 = new Telerik.Reporting.Drawing.StyleRule();
             this.Month = new Telerik.Reporting.SqlDataSource();
             this.Year = new Telerik.Reporting.SqlDataSource();
@@ -36,6 +37,7 @@ namespace env.Report
             this.graphAxis1 = new Telerik.Reporting.GraphAxis();
             this.graphAxis2 = new Telerik.Reporting.GraphAxis();
             this.cartesianCoordinateSystem2 = new Telerik.Reporting.CartesianCoordinateSystem();
+            this.graphAxis4 = new Telerik.Reporting.GraphAxis();
             this.graphAxis3 = new Telerik.Reporting.GraphAxis();
             this.barSeries1 = new Telerik.Reporting.BarSeries();
             this.barSeries2 = new Telerik.Reporting.BarSeries();
@@ -63,19 +65,18 @@ namespace env.Report
             this.sqlDataSource1.ConnectionString = "starenergyenviro";
             this.sqlDataSource1.Name = "sqlDataSource1";
             this.sqlDataSource1.Parameters.AddRange(new Telerik.Reporting.SqlDataSourceParameter[] {
-            new Telerik.Reporting.SqlDataSourceParameter("@monthfrom", System.Data.DbType.String, "=Parameters.monthfrom.Value"),
-            new Telerik.Reporting.SqlDataSourceParameter("@yearfrom", System.Data.DbType.String, "=Parameters.yearfrom.Value"),
-            new Telerik.Reporting.SqlDataSourceParameter("@monthto", System.Data.DbType.String, "=Parameters.monthto.Value"),
-            new Telerik.Reporting.SqlDataSourceParameter("@yearto", System.Data.DbType.String, "=Parameters.yearto.Value")});
+            new Telerik.Reporting.SqlDataSourceParameter("@datefrom", System.Data.DbType.DateTime, "=Parameters.datefrom.Value"),
+            new Telerik.Reporting.SqlDataSourceParameter("@dateto", System.Data.DbType.DateTime, "=Parameters.dateto.Value")});
             this.sqlDataSource1.SelectCommand = resources.GetString("sqlDataSource1.SelectCommand");
             // 
             // detail
             // 
-            this.detail.Height = Telerik.Reporting.Drawing.Unit.Inch(6.8000001907348633D);
+            this.detail.Height = Telerik.Reporting.Drawing.Unit.Inch(6.8000006675720215D);
             this.detail.Items.AddRange(new Telerik.Reporting.ReportItemBase[] {
             this.panel1,
             this.graph1});
             this.detail.Name = "detail";
+            this.detail.PageBreak = Telerik.Reporting.PageBreak.None;
             // 
             // panel1
             // 
@@ -105,7 +106,7 @@ namespace env.Report
             this.textBox1.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(20D);
             this.textBox1.Style.TextAlign = Telerik.Reporting.Drawing.HorizontalAlign.Center;
             this.textBox1.Style.VerticalAlign = Telerik.Reporting.Drawing.VerticalAlign.Middle;
-            this.textBox1.Value = "STAR ENERGY (WAYANG WINDU) LIMITED";
+            this.textBox1.Value = "STAR ENERGY GEOTHERMAL (WAYANG WINDU) LIMITED";
             // 
             // textBox2
             // 
@@ -115,7 +116,7 @@ namespace env.Report
             this.textBox2.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(16D);
             this.textBox2.Style.TextAlign = Telerik.Reporting.Drawing.HorizontalAlign.Center;
             this.textBox2.Style.VerticalAlign = Telerik.Reporting.Drawing.VerticalAlign.Middle;
-            this.textBox2.Value = "Non Hazardous Recycle Rate Report";
+            this.textBox2.Value = "Non Hazardous Waste Recycle Rate Report";
             // 
             // graph1
             // 
@@ -141,13 +142,14 @@ namespace env.Report
             this.graph1.Series.Add(this.barSeries1);
             this.graph1.Series.Add(this.barSeries2);
             this.graph1.Series.Add(this.lineSeries1);
-            this.graph1.SeriesGroups.Add(graphGroup3);
+            graphGroup5.Name = "graphGroup2";
+            this.graph1.SeriesGroups.Add(graphGroup5);
             this.graph1.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Inch(10.899999618530273D), Telerik.Reporting.Drawing.Unit.Inch(5.2999997138977051D));
             graphTitle1.Style.Font.Bold = true;
             graphTitle1.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(16D);
             graphTitle1.Style.LineColor = System.Drawing.Color.LightGray;
             graphTitle1.Style.LineWidth = Telerik.Reporting.Drawing.Unit.Inch(0D);
-            graphTitle1.Text = "Non Hazardous Recycle Rate";
+            graphTitle1.Text = "Non Hazardous Waste Recycle Rate";
             this.graph1.Titles.Add(graphTitle1);
             // 
             // cartesianCoordinateSystem1
@@ -163,7 +165,7 @@ namespace env.Report
             this.graphAxis1.MinorGridLineStyle.LineColor = System.Drawing.Color.LightGray;
             this.graphAxis1.MinorGridLineStyle.LineWidth = Telerik.Reporting.Drawing.Unit.Pixel(1D);
             this.graphAxis1.MinorGridLineStyle.Visible = false;
-            this.graphAxis1.Name = "GraphAxis1";
+            this.graphAxis1.Name = "GraphAxis4";
             categoryScale1.SpacingSlotCount = 1D;
             this.graphAxis1.Scale = categoryScale1;
             // 
@@ -178,12 +180,26 @@ namespace env.Report
             numericalScale1.CrossAxisValue = 0D;
             numericalScale1.SpacingSlotCount = 1D;
             this.graphAxis2.Scale = numericalScale1;
+            this.graphAxis2.Title = "weight (kg)";
             // 
             // cartesianCoordinateSystem2
             // 
             this.cartesianCoordinateSystem2.Name = "cartesianCoordinateSystem2";
-            this.cartesianCoordinateSystem2.XAxis = this.graphAxis1;
+            this.cartesianCoordinateSystem2.XAxis = this.graphAxis4;
             this.cartesianCoordinateSystem2.YAxis = this.graphAxis3;
+            // 
+            // graphAxis4
+            // 
+            this.graphAxis4.MajorGridLineStyle.LineColor = System.Drawing.Color.LightGray;
+            this.graphAxis4.MajorGridLineStyle.LineWidth = Telerik.Reporting.Drawing.Unit.Pixel(1D);
+            this.graphAxis4.MinorGridLineStyle.LineColor = System.Drawing.Color.LightGray;
+            this.graphAxis4.MinorGridLineStyle.LineWidth = Telerik.Reporting.Drawing.Unit.Pixel(1D);
+            this.graphAxis4.MinorGridLineStyle.Visible = false;
+            this.graphAxis4.Name = "GraphAxis1";
+            categoryScale2.CrossAxisPosition = Telerik.Reporting.GraphScaleCrossAxisPosition.AtMaximum;
+            categoryScale2.SpacingSlotCount = 1D;
+            this.graphAxis4.Scale = categoryScale2;
+            this.graphAxis4.Style.Visible = false;
             // 
             // graphAxis3
             // 
@@ -196,29 +212,36 @@ namespace env.Report
             numericalScale2.CrossAxisValue = 0D;
             numericalScale2.SpacingSlotCount = 1D;
             this.graphAxis3.Scale = numericalScale2;
+            this.graphAxis3.Title = "%";
             // 
             // barSeries1
             // 
-            this.barSeries1.CategoryGroup = graphGroup2;
+            graphGroup3.Groupings.Add(new Telerik.Reporting.Grouping("=Fields.yeer"));
+            graphGroup3.Groupings.Add(new Telerik.Reporting.Grouping("=Fields.mnuum"));
+            graphGroup3.Label = resources.GetString("graphGroup3.Label");
+            graphGroup3.Name = "yearGroup1";
+            graphGroup3.Sortings.Add(new Telerik.Reporting.Sorting("=Fields.yeer", Telerik.Reporting.SortDirection.Asc));
+            graphGroup3.Sortings.Add(new Telerik.Reporting.Sorting("=Fields.mnuum", Telerik.Reporting.SortDirection.Asc));
+            this.barSeries1.CategoryGroup = graphGroup3;
             this.barSeries1.CoordinateSystem = this.cartesianCoordinateSystem1;
             this.barSeries1.Legend = "Waste In";
             this.barSeries1.LegendFormat = "";
-            graphGroup3.Name = "graphGroup2";
-            this.barSeries1.SeriesGroup = graphGroup3;
+            graphGroup4.Name = "graphGroup2";
+            this.barSeries1.SeriesGroup = graphGroup4;
             this.barSeries1.Y = "= Fields.waste_in";
             // 
             // barSeries2
             // 
-            this.barSeries2.CategoryGroup = graphGroup2;
+            this.barSeries2.CategoryGroup = graphGroup3;
             this.barSeries2.CoordinateSystem = this.cartesianCoordinateSystem1;
             this.barSeries2.Legend = "Waste Out";
             this.barSeries2.LegendFormat = "";
-            this.barSeries2.SeriesGroup = graphGroup3;
+            this.barSeries2.SeriesGroup = graphGroup4;
             this.barSeries2.Y = "= Fields.waste_out";
             // 
             // lineSeries1
             // 
-            this.lineSeries1.CategoryGroup = graphGroup2;
+            this.lineSeries1.CategoryGroup = graphGroup3;
             this.lineSeries1.CoordinateSystem = this.cartesianCoordinateSystem2;
             this.lineSeries1.DataPointLabel = "= Fields.recycle_rate / 100";
             this.lineSeries1.DataPointLabelFormat = "{0:P2}";
@@ -236,7 +259,7 @@ namespace env.Report
             this.lineSeries1.MarkerMinSize = Telerik.Reporting.Drawing.Unit.Pixel(5D);
             this.lineSeries1.MarkerSize = Telerik.Reporting.Drawing.Unit.Pixel(5D);
             this.lineSeries1.MarkerType = Telerik.Reporting.DataPointMarkerType.Circle;
-            this.lineSeries1.SeriesGroup = graphGroup3;
+            this.lineSeries1.SeriesGroup = graphGroup4;
             this.lineSeries1.Size = null;
             this.lineSeries1.Y = "= Fields.recycle_rate";
             // 
@@ -249,41 +272,17 @@ namespace env.Report
             this.PageSettings.Margins = new Telerik.Reporting.Drawing.MarginsU(Telerik.Reporting.Drawing.Unit.Inch(0.25D), Telerik.Reporting.Drawing.Unit.Inch(0.25D), Telerik.Reporting.Drawing.Unit.Inch(0.25D), Telerik.Reporting.Drawing.Unit.Inch(0.25D));
             this.PageSettings.PaperKind = System.Drawing.Printing.PaperKind.A4;
             reportParameter1.AutoRefresh = true;
-            reportParameter1.AvailableValues.DataSource = this.Month;
-            reportParameter1.AvailableValues.DisplayMember = "= Fields.month";
-            reportParameter1.AvailableValues.ValueMember = "= Fields.month";
-            reportParameter1.Name = "monthfrom";
-            reportParameter1.Text = "Month From";
-            reportParameter1.Type = Telerik.Reporting.ReportParameterType.Integer;
+            reportParameter1.Name = "datefrom";
+            reportParameter1.Text = "From";
+            reportParameter1.Type = Telerik.Reporting.ReportParameterType.DateTime;
             reportParameter1.Visible = true;
             reportParameter2.AutoRefresh = true;
-            reportParameter2.AvailableValues.DataSource = this.Month;
-            reportParameter2.AvailableValues.DisplayMember = "= Fields.month";
-            reportParameter2.AvailableValues.ValueMember = "= Fields.month";
-            reportParameter2.Name = "monthto";
-            reportParameter2.Text = "Month To";
-            reportParameter2.Type = Telerik.Reporting.ReportParameterType.Integer;
+            reportParameter2.Name = "dateto";
+            reportParameter2.Text = "To";
+            reportParameter2.Type = Telerik.Reporting.ReportParameterType.DateTime;
             reportParameter2.Visible = true;
-            reportParameter3.AutoRefresh = true;
-            reportParameter3.AvailableValues.DataSource = this.Year;
-            reportParameter3.AvailableValues.DisplayMember = "= Fields.year";
-            reportParameter3.AvailableValues.ValueMember = "= Fields.year";
-            reportParameter3.Name = "yearfrom";
-            reportParameter3.Text = "Year From";
-            reportParameter3.Type = Telerik.Reporting.ReportParameterType.Integer;
-            reportParameter3.Visible = true;
-            reportParameter4.AutoRefresh = true;
-            reportParameter4.AvailableValues.DataSource = this.Year;
-            reportParameter4.AvailableValues.DisplayMember = "= Fields.year";
-            reportParameter4.AvailableValues.ValueMember = "= Fields.year";
-            reportParameter4.Name = "yearto";
-            reportParameter4.Text = "Year To";
-            reportParameter4.Type = Telerik.Reporting.ReportParameterType.Integer;
-            reportParameter4.Visible = true;
             this.ReportParameters.Add(reportParameter1);
             this.ReportParameters.Add(reportParameter2);
-            this.ReportParameters.Add(reportParameter3);
-            this.ReportParameters.Add(reportParameter4);
             this.Style.BackgroundColor = System.Drawing.Color.White;
             styleRule1.Selectors.AddRange(new Telerik.Reporting.Drawing.ISelector[] {
             new Telerik.Reporting.Drawing.TypeSelector(typeof(Telerik.Reporting.TextItemBase)),
@@ -306,7 +305,6 @@ namespace env.Report
         private Telerik.Reporting.SqlDataSource sqlDataSource1;
         private Telerik.Reporting.Graph graph1;
         private Telerik.Reporting.CartesianCoordinateSystem cartesianCoordinateSystem1;
-        private Telerik.Reporting.GraphAxis graphAxis1;
         private Telerik.Reporting.GraphAxis graphAxis2;
         private Telerik.Reporting.BarSeries barSeries1;
         private Telerik.Reporting.CartesianCoordinateSystem cartesianCoordinateSystem2;
@@ -315,5 +313,7 @@ namespace env.Report
         private Telerik.Reporting.LineSeries lineSeries1;
         private Telerik.Reporting.SqlDataSource Month;
         private Telerik.Reporting.SqlDataSource Year;
+        public Telerik.Reporting.GraphAxis graphAxis1;
+        private Telerik.Reporting.GraphAxis graphAxis4;
     }
 }

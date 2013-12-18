@@ -144,7 +144,7 @@ namespace env.Controllers
                          id = waste.id,
                          name = waste.name,
                          waste_code = waste.waste_code
-                     }).ToList();
+                     }).OrderBy(p => p.name).ToList();
             foreach (var c in r)
             {
                 dict[""+c.id] = c.name + " - " + c.waste_code;
@@ -161,7 +161,7 @@ namespace env.Controllers
                      {
                          id = source.id,
                          source = source.source
-                     }).ToList();
+                     }).OrderBy(p => p.source).ToList();
             foreach (var c in r)
             {
                 dict["" + c.id] = c.source;
@@ -179,7 +179,7 @@ namespace env.Controllers
                          id = satuan.id,
                          satuan = satuan.satuan,
                          unit_conversion = satuan.unit_conversion
-                     }).ToList();
+                     }).OrderBy(p => p.satuan).ToList();
             foreach (var c in r)
             {
                 dict["" + c.id] = c.satuan;

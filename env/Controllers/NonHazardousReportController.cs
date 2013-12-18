@@ -16,5 +16,10 @@ namespace env.Controllers
             return PartialView();
         }
 
+        public ActionResult WasteReport()
+        {
+            return PartialView();
+        }
+
     }
 }

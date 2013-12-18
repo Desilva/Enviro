@@ -140,6 +140,7 @@ namespace env.Report
                 series[i].Appearance.EmptyValue.Line.Width = 0;
                 series[i].Appearance.EmptyValue.PointMark.Visible = false;
                 series[i].Appearance.PointMark.Visible = true;
+                series[i].Appearance.PointShape = "rectangle";
                 series[i].Appearance.PointMark.FillStyle.FillType = Telerik.Reporting.Charting.Styles.FillType.Solid;
                 series[i].Appearance.PointMark.FillStyle.MainColor = colors[i];
             }
@@ -152,9 +153,11 @@ namespace env.Report
                 int x = tXLabel.Rows.IndexOf(tXLabel.Rows.Find(a));
                 item.XValue = x;
                 item.Label.TextBlock.Text = "#Y";
-                item.Label.Appearance.Position.Auto = false;
+                item.Label.TextBlock.Appearance.Dimensions.Margins.Bottom = 0;
+                item.Label.TextBlock.Appearance.Position.X = 0;
                 item.Label.Appearance.Position.AlignedPosition = Telerik.Reporting.Charting.Styles.AlignedPositions.Left;
-                item.Label.TextBlock.Appearance.TextProperties.Color = Color.Black;
+                item.Label.TextBlock.Appearance.TextProperties.Color = Color.FromArgb(65,64,66);
+                item.Label.TextBlock.Appearance.TextProperties.Font = new System.Drawing.Font("Arial", 12, FontStyle.Regular);
                 int totalData = series[tSeries.Rows.IndexOf(tSeries.Rows.Find(row["lokasi_sampling"]))].Items.Count;
                 if (x == totalData)
                 {
@@ -175,13 +178,15 @@ namespace env.Report
                 
 
             }
-            this.chart1.ChartTitle.Appearance.Position.AlignedPosition = Telerik.Reporting.Charting.Styles.AlignedPositions.Top;
             this.chart1.ChartTitle.TextBlock.Text = report.Report.Parameters["TYPE"].Label.ToString() + " Quality";
             this.chart1.PlotArea.YAxis.AxisLabel.TextBlock.Text = report.Report.Parameters["unit"].Label == null ? "" : report.Report.Parameters["unit"].Label.ToString();
             this.chart1.PlotArea.YAxis.AxisLabel.Visible = true;
-            this.chart1.PlotArea.Appearance.Dimensions.AutoSize = false;
-            this.chart1.PlotArea.Appearance.Dimensions.Width = 700;
-            this.chart1.PlotArea.Appearance.Dimensions.Height = 476;
+            this.chart1.Legend.Appearance.Position.AlignedPosition = Telerik.Reporting.Charting.Styles.AlignedPositions.BottomRight;
+            this.chart1.Legend.Appearance.Position.Auto = true;
+            this.chart1.Legend.Appearance.ItemMarkerAppearance.Figure = "Rectangle";
+            this.chart1.Legend.Appearance.ItemTextAppearance.TextProperties.Color = Color.FromArgb(88,89,91);
+            this.chart1.Legend.Appearance.ItemTextAppearance.TextProperties.Font = new System.Drawing.Font("Arial", 12, FontStyle.Regular);
+            this.chart1.Legend.Appearance.Dimensions.Margins.Bottom = 60;
             Palette pal = new Palette();
             foreach (var color in colors)
             {

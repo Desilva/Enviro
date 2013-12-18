@@ -201,7 +201,7 @@
         XTesb3QPLh88M+QwdP6m681Lt7xuXbu94vbgcOjwnZHokdE77DtTd1PuvriXeW/h/sYH6AdFD6UeVjxS
         fNTws+7PbaOWo6fHXMf6Hwc/vj/OGn/2S8Yv7ycKnpCfVEyqTDZPmU2dmnafvvF05dOJZ+nPFmYKf5X+
         tfa5zvMffnP8rX82YnbiBf/Fp99LXsq/PPRq2aueuYC5R69TXy/MF72Rf3P4LeNt37vwd5MLWe+x7ys/
-        6H7o/ujz8cGn1E+f/gUDmPP8usTo0wAAAAlwSFlzAAALDQAACw0B7QfALAAAIdNJREFUeF7tnQecFcUd
+        6H7o/ujz8cGn1E+f/gUDmPP8usTo0wAAAAlwSFlzAAALDAAACwwBP0AiyAAAIdNJREFUeF7tnQecFcUd
         x1dUxBLFroho1NhLijWJiYkxmlhiEjX2FopSlKMf3AGHgl0UjQVRVBQlEcXesIsiqFExdgF7F1TEipPf
         b3dnbt7O/717b+/VY+bz+d7O7c6WN//f7P5ndmY2UErJdA/aAhuC/ol1bYduQXBV/THB0KYxwciRIz15
         ojWeKXgbKbNrizXAo0CBsfG6toUXfyq0xpvFnkTK7NrhR+ABQOFrzgNS2trFiz8VWuMm4iBldm2wErgH
@@ -365,28 +365,27 @@ Month: ' + Iif(Parameters.month.Value = 1,'January',Iif(Parameters.month.Value =
         RGF0YVNvdXJjZVBhcmFtZXRlcgMAAAACAAAACQQAAAAFBAAAAEtTeXN0ZW0uQ29sbGVjdGlvbnMuR2Vu
         ZXJpYy5MaXN0YDFbW1RlbGVyaWsuUmVwb3J0aW5nLlNxbERhdGFTb3VyY2VQYXJhbWV0ZXIDAAAABl9p
         dGVtcwVfc2l6ZQhfdmVyc2lvbgQAACpUZWxlcmlrLlJlcG9ydGluZy5TcWxEYXRhU291cmNlUGFyYW1l
-        dGVyW10CAAAACAgDAAAACQUAAAAEAAAACgAAAAcFAAAAAAEAAAAEAAAABChUZWxlcmlrLlJlcG9ydGlu
-        Zy5TcWxEYXRhU291cmNlUGFyYW1ldGVyAgAAAAkGAAAACQcAAAAJCAAAAAkJAAAADAoAAABOU3lzdGVt
-        LkRhdGEsIFZlcnNpb249NC4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdh
-        NWM1NjE5MzRlMDg5DAsAAABJU3lzdGVtLCBWZXJzaW9uPTQuMC4wLjAsIEN1bHR1cmU9bmV1dHJhbCwg
-        UHVibGljS2V5VG9rZW49Yjc3YTVjNTYxOTM0ZTA4OQUGAAAAKFRlbGVyaWsuUmVwb3J0aW5nLlNxbERh
-        dGFTb3VyY2VQYXJhbWV0ZXIEAAAABmRiVHlwZRhEYXRhU291cmNlUGFyYW1ldGVyK25hbWUZRGF0YVNv
-        dXJjZVBhcmFtZXRlcit2YWx1ZSNEYXRhU291cmNlUGFyYW1ldGVyK1Byb3BlcnR5Q2hhbmdlZAQBAgQS
-        U3lzdGVtLkRhdGEuRGJUeXBlCgAAADFTeXN0ZW0uQ29tcG9uZW50TW9kZWwuUHJvcGVydHlDaGFuZ2Vk
-        RXZlbnRIYW5kbGVyCwAAAAIAAAAF9P///xJTeXN0ZW0uRGF0YS5EYlR5cGUBAAAAB3ZhbHVlX18ACAoA
-        AAAQAAAABg0AAAALQG1vbnRoX2Zyb20GDgAAAAE5CgEHAAAABgAAAAHx////9P///xAAAAAGEAAAAApA
-        eWVhcl9mcm9tBhEAAAAEMjAxMwoBCAAAAAYAAAAB7v////T///8QAAAABhMAAAAJQG1vbnRoX3RvBhQA
-        AAABOQoBCQAAAAYAAAAB6/////T///8QAAAABhYAAAAIQHllYXJfdG8GFwAAAAQyMDE0Cgs=
+        dGVyW10CAAAACAgDAAAACQUAAAACAAAADQAAAAcFAAAAAAEAAAAEAAAABChUZWxlcmlrLlJlcG9ydGlu
+        Zy5TcWxEYXRhU291cmNlUGFyYW1ldGVyAgAAAAkGAAAACQcAAAANAgwIAAAATlN5c3RlbS5EYXRhLCBW
+        ZXJzaW9uPTQuMC4wLjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49Yjc3YTVjNTYxOTM0
+        ZTA4OQwJAAAASVN5c3RlbSwgVmVyc2lvbj00LjAuMC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tl
+        eVRva2VuPWI3N2E1YzU2MTkzNGUwODkFBgAAAChUZWxlcmlrLlJlcG9ydGluZy5TcWxEYXRhU291cmNl
+        UGFyYW1ldGVyBAAAAAZkYlR5cGUYRGF0YVNvdXJjZVBhcmFtZXRlcituYW1lGURhdGFTb3VyY2VQYXJh
+        bWV0ZXIrdmFsdWUjRGF0YVNvdXJjZVBhcmFtZXRlcitQcm9wZXJ0eUNoYW5nZWQEAQIEElN5c3RlbS5E
+        YXRhLkRiVHlwZQgAAAAxU3lzdGVtLkNvbXBvbmVudE1vZGVsLlByb3BlcnR5Q2hhbmdlZEV2ZW50SGFu
+        ZGxlcgkAAAACAAAABfb///8SU3lzdGVtLkRhdGEuRGJUeXBlAQAAAAd2YWx1ZV9fAAgIAAAABgAAAAYL
+        AAAACUBkYXRlZnJvbQYMAAAACTkvMTAvMjAxMwoBBwAAAAYAAAAB8/////b///8GAAAABg4AAAAHQGRh
+        dGV0bwYPAAAACTkvMTAvMjAxNAoL
 </value>
   </metadata>
   <data name="AnnualReport.SelectCommand" xml:space="preserve">
-    <value>WITH mnth(mnuum, yeer) AS (SELECT        CAST(@month_from AS int) AS Expr1, CAST(@year_from AS int) AS Expr2
+    <value>WITH mnth(mnuum, yeer) AS (SELECT        month(CAST(@datefrom AS datetime)) AS Expr1, year(CAST(@datefrom AS datetime)) AS Expr2
                                                                 UNION ALL
                                                                 SELECT        CASE WHEN mnuum &gt; 11 THEN 1 ELSE mnuum + 1 END AS mnuum, 
                                                                                          CASE WHEN mnuum &gt; 11 THEN yeer + 1 ELSE yeer END AS yeer
                                                                 FROM            mnth AS mnth_2
-                                                                WHERE        (mnuum &lt; CAST(@month_to AS int)) OR
-                                                                                         (yeer &lt; CAST(@year_to AS int))), type_waste(id, name, code) AS
+                                                                WHERE        (mnuum &lt; month(CAST(@dateto AS datetime))) OR
+                                                                                         (yeer &lt; year(CAST(@dateto AS datetime)))), type_waste(id, name, code) AS
     (SELECT        id, name, waste_code
       FROM            waste_hazardous)
     SELECT        mnth_1.mnuum, mnth_1.yeer, type_waste_1.name, type_waste_1.code, ISNULL(e.volume_in, 0) AS volume_in, ISNULL(e.source, '-') AS source, 
@@ -419,14 +418,14 @@ Month: ' + Iif(Parameters.month.Value = 1,'January',Iif(Parameters.month.Value =
                                                               FROM            hazardous_record AS hazardous_record_4 LEFT OUTER JOIN
                                                                                         source_of_waste AS source_of_waste_2 ON hazardous_record_4.id_source = source_of_waste_2.id LEFT OUTER JOIN
                                                                                         satuan_unit AS satuan_unit_4 ON hazardous_record_4.id_satuan = satuan_unit_4.id
-                                                              WHERE        (hazardous_record_4.date &lt; @year_from + '-' + @month_from + '-01') AND (hazardous_record_4.type = 0)
+                                                              WHERE        (hazardous_record_4.date &lt; cast(year(cast(@datefrom as datetime)) as varchar) + '-' + cast(month(cast(@datefrom as datetime)) as varchar) + '-01') AND (hazardous_record_4.type = 0)
                                                               GROUP BY hazardous_record_4.id_waste) AS c LEFT OUTER JOIN
                                                                   (SELECT        hazardous_record_3.id_waste AS id_out, MAX(hazardous_record_3.date) AS date_out, 
                                                                                               SUM(hazardous_record_3.volume_weight * satuan_unit_3.unit_conversion) / 1000 AS volume, MAX(hazardous_record_3.tujuan) 
                                                                                               AS tujuan
                                                                     FROM            hazardous_record AS hazardous_record_3 LEFT OUTER JOIN
                                                                                               satuan_unit AS satuan_unit_3 ON hazardous_record_3.id_satuan = satuan_unit_3.id
-                                                                    WHERE        (hazardous_record_3.date &lt; @year_from + '-' + @month_from + '-01') AND (hazardous_record_3.type = 1)
+                                                                    WHERE        (hazardous_record_3.date &lt; cast(year(cast(@datefrom as datetime)) as varchar) + '-' + cast(month(cast(@datefrom as datetime)) as varchar) + '-01') AND (hazardous_record_3.type = 1)
                                                                     GROUP BY hazardous_record_3.id_waste) AS d ON c.id_in = d.id_out) AS f ON type_waste_1.id = f.waste_id LEFT OUTER JOIN
                                   (SELECT        c_1.id_in AS waste_id, ISNULL(c_1.volume, 0) - ISNULL(d_1.volume, 0) AS total_simpan, c_1.source, d_1.tujuan
                                     FROM            (SELECT        hazardous_record_2.id_waste AS id_in, MAX(hazardous_record_2.date) AS date_in, 
@@ -435,16 +434,14 @@ Month: ' + Iif(Parameters.month.Value = 1,'January',Iif(Parameters.month.Value =
                                                               FROM            hazardous_record AS hazardous_record_2 LEFT OUTER JOIN
                                                                                         source_of_waste AS source_of_waste_1 ON hazardous_record_2.id_source = source_of_waste_1.id LEFT OUTER JOIN
                                                                                         satuan_unit AS satuan_unit_2 ON hazardous_record_2.id_satuan = satuan_unit_2.id
-                                                              WHERE        (hazardous_record_2.date BETWEEN @year_from + '-' + @month_from + '-01' AND @year_to + '-' + CAST(CAST(@month_to AS int) 
-                                                                                        + 1 AS varchar(2)) + '-01') AND (hazardous_record_2.type = 0)
+                                                              WHERE        (hazardous_record_2.date BETWEEN cast(year(cast(@datefrom as datetime)) as varchar) + '-' + cast(month(cast(@datefrom as datetime)) as varchar) + '-01' AND cast(year(cast(@dateto as datetime)) as varchar) + '-' + cast(month(cast(@dateto as datetime) + 1) as varchar) + '-01') AND (hazardous_record_2.type = 0)
                                                               GROUP BY hazardous_record_2.id_waste) AS c_1 LEFT OUTER JOIN
                                                                   (SELECT        hazardous_record_1.id_waste AS id_out, MAX(hazardous_record_1.date) AS date_out, 
                                                                                               SUM(hazardous_record_1.volume_weight * satuan_unit_1.unit_conversion) / 1000 AS volume, MAX(hazardous_record_1.tujuan) 
                                                                                               AS tujuan
                                                                     FROM            hazardous_record AS hazardous_record_1 LEFT OUTER JOIN
                                                                                               satuan_unit AS satuan_unit_1 ON hazardous_record_1.id_satuan = satuan_unit_1.id
-                                                                    WHERE        (hazardous_record_1.date BETWEEN @year_from + '-' + @month_from + '-01' AND @year_to + '-' + CAST(CAST(@month_to AS int) 
-                                                                                              + 1 AS varchar(2)) + '-01') AND (hazardous_record_1.type = 1)
+                                                                    WHERE        (hazardous_record_1.date BETWEEN cast(year(cast(@datefrom as datetime)) as varchar) + '-' + cast(month(cast(@datefrom as datetime)) as varchar) + '-01' AND cast(year(cast(@dateto as datetime)) as varchar) + '-' + cast(month(cast(@dateto as datetime) + 1) as varchar) + '-01') AND (hazardous_record_1.type = 1)
                                                                     GROUP BY hazardous_record_1.id_waste) AS d_1 ON c_1.id_in = d_1.id_out) AS g ON type_waste_1.id = g.waste_id</value>
   </data>
   <data name="pictureBox2.Value" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -644,7 +641,7 @@ Month: ' + Iif(Parameters.month.Value = 1,'January',Iif(Parameters.month.Value =
   </data>
   <data name="textBox14.Value" xml:space="preserve">
     <value>= 'Hazardous Waste Report
-' + Iif(Parameters.monthfrom.Value = 1,'January',Iif(Parameters.monthfrom.Value = 1,'January',Iif(Parameters.monthfrom.Value = 2,'February',Iif(Parameters.monthfrom.Value = 3,'March',Iif(Parameters.monthfrom.Value = 4,'April',Iif(Parameters.monthfrom.Value = 5,'May',Iif(Parameters.monthfrom.Value = 6,'June',Iif(Parameters.monthfrom.Value = 7,'July',Iif(Parameters.monthfrom.Value = 8,'August',Iif(Parameters.monthfrom.Value = 9,'September',Iif(Parameters.monthfrom.Value = 10,'October',Iif(Parameters.monthfrom.Value = 11,'November','December')))))))))))) + ' ' + Parameters.yearfrom.Value + ' - ' + Iif(Parameters.monthto.Value = 1,'January',Iif(Parameters.monthto.Value = 1,'January',Iif(Parameters.monthto.Value = 2,'February',Iif(Parameters.monthto.Value = 3,'March',Iif(Parameters.monthto.Value = 4,'April',Iif(Parameters.monthto.Value = 5,'May',Iif(Parameters.monthto.Value = 6,'June',Iif(Parameters.monthto.Value = 7,'July',Iif(Parameters.monthto.Value = 8,'August',Iif(Parameters.monthto.Value = 9,'September',Iif(Parameters.monthto.Value = 10,'October',Iif(Parameters.monthto.Value = 11,'November','December')))))))))))) + ' ' + Parameters.yearto.Value</value>
+' + Iif(Parameters.datefrom.Value.Month = 1,'January',Iif(Parameters.datefrom.Value.Month = 1,'January',Iif(Parameters.datefrom.Value.Month = 2,'February',Iif(Parameters.datefrom.Value.Month = 3,'March',Iif(Parameters.datefrom.Value.Month = 4,'April',Iif(Parameters.datefrom.Value.Month = 5,'May',Iif(Parameters.datefrom.Value.Month = 6,'June',Iif(Parameters.datefrom.Value.Month = 7,'July',Iif(Parameters.datefrom.Value.Month = 8,'August',Iif(Parameters.datefrom.Value.Month = 9,'September',Iif(Parameters.datefrom.Value.Month = 10,'October',Iif(Parameters.datefrom.Value.Month = 11,'November','December')))))))))))) + ' ' + Parameters.datefrom.Value.Year + ' - ' + Iif(Parameters.dateto.Value.Month = 1,'January',Iif(Parameters.dateto.Value.Month = 1,'January',Iif(Parameters.dateto.Value.Month = 2,'February',Iif(Parameters.dateto.Value.Month = 3,'March',Iif(Parameters.dateto.Value.Month = 4,'April',Iif(Parameters.dateto.Value.Month = 5,'May',Iif(Parameters.dateto.Value.Month = 6,'June',Iif(Parameters.dateto.Value.Month = 7,'July',Iif(Parameters.dateto.Value.Month = 8,'August',Iif(Parameters.dateto.Value.Month = 9,'September',Iif(Parameters.dateto.Value.Month = 10,'October',Iif(Parameters.dateto.Value.Month = 11,'November','December')))))))))))) + ' ' + Parameters.dateto.Value.Year</value>
   </data>
   <metadata name="$this.SnapGridSize" type="Telerik.Reporting.Drawing.Unit, Telerik.Reporting, Version=7.0.13.220, Culture=neutral, PublicKeyToken=a9d7983dfcc261be">
     <value>0.1in</value>

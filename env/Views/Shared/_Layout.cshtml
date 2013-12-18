@@ -47,11 +47,12 @@
 					</ul>
 				</li>
                 <li id="waste-report" class="submenu">
-					<a href="#"><i class="icon icon-th-list"></i> <span>Waste Report</span> <span class="label">3</span></a>
+					<a href="#"><i class="icon icon-th-list"></i> <span>Waste Report</span> <span class="label">4</span></a>
 					<ul>
                         <li id="hazard-month-report"><a href="#">Hazardous Waste Monthly Report</a></li>
                         <li id="hazard-year-report"><a href="#">Hazardous Waste Annual Report</a></li>
-                        <li id="non-hazard-report"><a href="#">Non Hazardous Recyle Rate Report</a></li>
+                        <li id="non-hazard-generation"><a href="#">Non Hazardous Waste Generations Report</a></li>
+                        <li id="non-hazard-report"><a href="#">Non Hazardous Waste Recyle Rate Report</a></li>
 					</ul>
 				</li>
                 <li id="grafik-data" class="submenu">
@@ -64,8 +65,9 @@
 					</ul>
 				</li>
                 <li id="grafik" class="submenu">
-					<a href="#"><i class="icon icon-th-list"></i> <span>Environmental Monitoring</span> <span class="label">@lgt.Count</span></a>
+					<a href="#"><i class="icon icon-th-list"></i> <span>Environmental Monitoring</span> <span class="label">@(lgt.Count + 1)</span></a>
 					<ul>
+                        <li id="graphic-overall"><a href="#">Overall Graphic</a></li>
                         @foreach (env.Models.Wrapper.GraphicTypeWrapper gt in lgt)
                         {
                             <li id="graphic-@gt.id" class="graph-type"><a href="#">@gt.name Graphic</a></li>

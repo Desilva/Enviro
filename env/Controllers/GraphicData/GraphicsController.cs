@@ -121,10 +121,25 @@ namespace env.Controllers.GraphicData
             return PartialView(lgt.Find(p => p.id == type));
         }
 
+        public ActionResult OverallGraphic()
+        {
+            //ViewBag.type = type;
+            List<GraphicParameterWrapper> lgp = (from type in db.graphic_parameter
+                                                 select new GraphicParameterWrapper
+                                                 {
+                                                     id = type.id,
+                                                     type = type.type,
+                                                     parameter = type.parameter
+                                                 }).ToList();
+            ViewBag.lgp = lgp;
+            ViewBag.lgt = lgt;
+            return PartialView();
+        }
+
         public ActionResult ExportData(int id)
         {
             List<GraphicReportWrapper> result = new List<GraphicReportWrapper>();
-            List<GraphicDataWrapper> results = GraphicWrapper.All(p => p.date, id).OrderBy(p => p.date).ThenBy(p => p.lokasi_sampling).ToList();
+            List<GraphicDataWrapper> results = GraphicWrapper.All(p => p.date, id).OrderBy(p => p.date).ThenBy(p => p.lokasi_sampling.id).ToList();
             graphic_type gt = db.graphic_type.Find(id); 
             foreach (GraphicDataWrapper gdw in results)
             {

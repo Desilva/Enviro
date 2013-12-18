@@ -35,8 +35,6 @@ namespace env.Report
             Telerik.Reporting.TableGroup tableGroup23 = new Telerik.Reporting.TableGroup();
             Telerik.Reporting.ReportParameter reportParameter1 = new Telerik.Reporting.ReportParameter();
             Telerik.Reporting.ReportParameter reportParameter2 = new Telerik.Reporting.ReportParameter();
-            Telerik.Reporting.ReportParameter reportParameter3 = new Telerik.Reporting.ReportParameter();
-            Telerik.Reporting.ReportParameter reportParameter4 = new Telerik.Reporting.ReportParameter();
             Telerik.Reporting.Drawing.StyleRule styleRule1 = new Telerik.Reporting.Drawing.StyleRule();
             Telerik.Reporting.Drawing.StyleRule styleRule2 = new Telerik.Reporting.Drawing.StyleRule();
             Telerik.Reporting.Drawing.StyleRule styleRule3 = new Telerik.Reporting.Drawing.StyleRule();
@@ -655,11 +653,8 @@ namespace env.Report
             this.AnnualReport.ConnectionString = "starenergyenviro";
             this.AnnualReport.Name = "AnnualReport";
             this.AnnualReport.Parameters.AddRange(new Telerik.Reporting.SqlDataSourceParameter[] {
-            new Telerik.Reporting.SqlDataSourceParameter("@month_from", System.Data.DbType.String, "=Parameters.monthfrom.Value"),
-            new Telerik.Reporting.SqlDataSourceParameter("@year_from", System.Data.DbType.String, "=Parameters.yearfrom.Value"),
-            new Telerik.Reporting.SqlDataSourceParameter("@month_to", System.Data.DbType.String, "=Parameters.monthto.Value"),
-            new Telerik.Reporting.SqlDataSourceParameter("@year_to", System.Data.DbType.String, "=Parameters.yearto.Value")});
-            this.AnnualReport.ProviderName = "System.Data.SqlClient";
+            new Telerik.Reporting.SqlDataSourceParameter("@datefrom", System.Data.DbType.DateTime, "=Parameters.datefrom.Value"),
+            new Telerik.Reporting.SqlDataSourceParameter("@dateto", System.Data.DbType.DateTime, "=Parameters.dateto.Value")});
             this.AnnualReport.SelectCommand = resources.GetString("AnnualReport.SelectCommand");
             // 
             // panel3
@@ -710,42 +705,16 @@ namespace env.Report
             this.PageSettings.Landscape = true;
             this.PageSettings.Margins = new Telerik.Reporting.Drawing.MarginsU(Telerik.Reporting.Drawing.Unit.Inch(0.5D), Telerik.Reporting.Drawing.Unit.Inch(0.5D), Telerik.Reporting.Drawing.Unit.Inch(1D), Telerik.Reporting.Drawing.Unit.Inch(1D));
             this.PageSettings.PaperKind = System.Drawing.Printing.PaperKind.A4;
-            reportParameter1.AutoRefresh = true;
-            reportParameter1.AvailableValues.DataSource = this.Month;
-            reportParameter1.AvailableValues.DisplayMember = "= Fields.month";
-            reportParameter1.AvailableValues.ValueMember = "= Fields.month";
-            reportParameter1.Name = "monthfrom";
-            reportParameter1.Text = "Month From";
-            reportParameter1.Type = Telerik.Reporting.ReportParameterType.Integer;
+            reportParameter1.Name = "datefrom";
+            reportParameter1.Text = "From";
+            reportParameter1.Type = Telerik.Reporting.ReportParameterType.DateTime;
             reportParameter1.Visible = true;
-            reportParameter2.AutoRefresh = true;
-            reportParameter2.AvailableValues.DataSource = this.Month;
-            reportParameter2.AvailableValues.DisplayMember = "= Fields.month";
-            reportParameter2.AvailableValues.ValueMember = "= Fields.month";
-            reportParameter2.Name = "monthto";
-            reportParameter2.Text = "Month To";
-            reportParameter2.Type = Telerik.Reporting.ReportParameterType.Integer;
+            reportParameter2.Name = "dateto";
+            reportParameter2.Text = "To";
+            reportParameter2.Type = Telerik.Reporting.ReportParameterType.DateTime;
             reportParameter2.Visible = true;
-            reportParameter3.AutoRefresh = true;
-            reportParameter3.AvailableValues.DataSource = this.Year;
-            reportParameter3.AvailableValues.DisplayMember = "= Fields.year";
-            reportParameter3.AvailableValues.ValueMember = "= Fields.year";
-            reportParameter3.Name = "yearfrom";
-            reportParameter3.Text = "Year From";
-            reportParameter3.Type = Telerik.Reporting.ReportParameterType.Integer;
-            reportParameter3.Visible = true;
-            reportParameter4.AutoRefresh = true;
-            reportParameter4.AvailableValues.DataSource = this.Year;
-            reportParameter4.AvailableValues.DisplayMember = "= Fields.year";
-            reportParameter4.AvailableValues.ValueMember = "= Fields.year";
-            reportParameter4.Name = "yearto";
-            reportParameter4.Text = "Year To";
-            reportParameter4.Type = Telerik.Reporting.ReportParameterType.Integer;
-            reportParameter4.Visible = true;
             this.ReportParameters.Add(reportParameter1);
             this.ReportParameters.Add(reportParameter2);
-            this.ReportParameters.Add(reportParameter3);
-            this.ReportParameters.Add(reportParameter4);
             this.Style.BackgroundColor = System.Drawing.Color.White;
             styleRule1.Selectors.AddRange(new Telerik.Reporting.Drawing.ISelector[] {
             new Telerik.Reporting.Drawing.TypeSelector(typeof(Telerik.Reporting.TextItemBase)),

@@ -117,45 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="Month.DefaultValues" mimetype="application/x-microsoft.net.object.binary.base64">
-    <value>
-        AAEAAAD/////AQAAAAAAAAAMAgAAAFdUZWxlcmlrLlJlcG9ydGluZywgVmVyc2lvbj03LjAuMTMuMjIw
-        LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWE5ZDc5ODNkZmNjMjYxYmUMAwAAAKYBVGVs
-        ZXJpay5SZXBvcnRpbmcsIFZlcnNpb249Ny4wLjEzLjIyMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNL
-        ZXlUb2tlbj1hOWQ3OTgzZGZjYzI2MWJlXV0sIG1zY29ybGliLCBWZXJzaW9uPTQuMC4wLjAsIEN1bHR1
-        cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49Yjc3YTVjNTYxOTM0ZTA4OQUBAAAAMlRlbGVyaWsuUmVw
-        b3J0aW5nLlNxbERhdGFTb3VyY2VQYXJhbWV0ZXJDb2xsZWN0aW9uAQAAABJDb2xsZWN0aW9uYDEraXRl
-        bXMES1N5c3RlbS5Db2xsZWN0aW9ucy5HZW5lcmljLkxpc3RgMVtbVGVsZXJpay5SZXBvcnRpbmcuU3Fs
-        RGF0YVNvdXJjZVBhcmFtZXRlcgMAAAACAAAACQQAAAAFBAAAAEtTeXN0ZW0uQ29sbGVjdGlvbnMuR2Vu
-        ZXJpYy5MaXN0YDFbW1RlbGVyaWsuUmVwb3J0aW5nLlNxbERhdGFTb3VyY2VQYXJhbWV0ZXIDAAAABl9p
-        dGVtcwVfc2l6ZQhfdmVyc2lvbgQAACpUZWxlcmlrLlJlcG9ydGluZy5TcWxEYXRhU291cmNlUGFyYW1l
-        dGVyW10CAAAACAgDAAAACQUAAAAAAAAAAgAAAAcFAAAAAAEAAAAAAAAABChUZWxlcmlrLlJlcG9ydGlu
-        Zy5TcWxEYXRhU291cmNlUGFyYW1ldGVyAgAAAAs=
-</value>
-  </metadata>
-  <data name="Month.SelectCommand" xml:space="preserve">
-    <value>with mnth(mnnum) as (
-select 1
-union all
-select mnnum+1 from mnth where mnnum&lt;12)
-select mnnum as month, case mnnum when 1 then 'January' when 2 then 'February' when 3 then 'March' when 4 then 'April' when 5 then 'May' when 6 then 'June' when 7 then 'July' when 8 then 'August' when 9 then 'September' when 10 then 'October' when 11 then 'November' when 12 then 'December' else '' end as month_name from mnth</value>
-  </data>
-  <metadata name="Year.DefaultValues" mimetype="application/x-microsoft.net.object.binary.base64">
-    <value>
-        AAEAAAD/////AQAAAAAAAAAMAgAAAFdUZWxlcmlrLlJlcG9ydGluZywgVmVyc2lvbj03LjAuMTMuMjIw
-        LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWE5ZDc5ODNkZmNjMjYxYmUMAwAAAKYBVGVs
-        ZXJpay5SZXBvcnRpbmcsIFZlcnNpb249Ny4wLjEzLjIyMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNL
-        ZXlUb2tlbj1hOWQ3OTgzZGZjYzI2MWJlXV0sIG1zY29ybGliLCBWZXJzaW9uPTQuMC4wLjAsIEN1bHR1
-        cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49Yjc3YTVjNTYxOTM0ZTA4OQUBAAAAMlRlbGVyaWsuUmVw
-        b3J0aW5nLlNxbERhdGFTb3VyY2VQYXJhbWV0ZXJDb2xsZWN0aW9uAQAAABJDb2xsZWN0aW9uYDEraXRl
-        bXMES1N5c3RlbS5Db2xsZWN0aW9ucy5HZW5lcmljLkxpc3RgMVtbVGVsZXJpay5SZXBvcnRpbmcuU3Fs
-        RGF0YVNvdXJjZVBhcmFtZXRlcgMAAAACAAAACQQAAAAFBAAAAEtTeXN0ZW0uQ29sbGVjdGlvbnMuR2Vu
-        ZXJpYy5MaXN0YDFbW1RlbGVyaWsuUmVwb3J0aW5nLlNxbERhdGFTb3VyY2VQYXJhbWV0ZXIDAAAABl9p
-        dGVtcwVfc2l6ZQhfdmVyc2lvbgQAACpUZWxlcmlrLlJlcG9ydGluZy5TcWxEYXRhU291cmNlUGFyYW1l
-        dGVyW10CAAAACAgDAAAACQUAAAAAAAAAAQAAAAcFAAAAAAEAAAAAAAAABChUZWxlcmlrLlJlcG9ydGlu
-        Zy5TcWxEYXRhU291cmNlUGFyYW1ldGVyAgAAAAs=
-</value>
-  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="pictureBox1.Value" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -204,7 +165,7 @@ select mnnum as month, case mnnum when 1 then 'January' when 2 then 'February' w
         XTesb3QPLh88M+QwdP6m681Lt7xuXbu94vbgcOjwnZHokdE77DtTd1PuvriXeW/h/sYH6AdFD6UeVjxS
         fNTws+7PbaOWo6fHXMf6Hwc/vj/OGn/2S8Yv7ycKnpCfVEyqTDZPmU2dmnafvvF05dOJZ+nPFmYKf5X+
         tfa5zvMffnP8rX82YnbiBf/Fp99LXsq/PPRq2aueuYC5R69TXy/MF72Rf3P4LeNt37vwd5MLWe+x7ys/
-        6H7o/ujz8cGn1E+f/gUDmPP8usTo0wAAAAlwSFlzAAALEAAACxABrSO9dQAAIdNJREFUeF7tnQecFcUd
+        6H7o/ujz8cGn1E+f/gUDmPP8usTo0wAAAAlwSFlzAAALDAAACwwBP0AiyAAAIdNJREFUeF7tnQecFcUd
         x1dUxBLFroho1NhLijWJiYkxmlhiEjX2FopSlKMf3AGHgl0UjQVRVBQlEcXesIsiqFExdgF7F1TEipPf
         b3dnbt7O/717b+/VY+bz+d7O7c6WN//f7P5ndmY2UErJdA/aAhuC/ol1bYduQXBV/THB0KYxwciRIz15
         ojWeKXgbKbNrizXAo0CBsfG6toUXfyq0xpvFnkTK7NrhR+ABQOFrzgNS2trFiz8VWuMm4iBldm2wErgH
@@ -352,20 +313,11 @@ select mnnum as month, case mnnum when 1 then 'January' when 2 then 'February' w
         PG0fFfwfXtcxVzpYitQAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="textBox2.Value" xml:space="preserve">
-    <value>= 'Hazardous Waste Monthly Report
-Month: ' + Iif(Parameters.month.Value = 1,'January',Iif(Parameters.month.Value = 1,'January',Iif(Parameters.month.Value = 2,'February',Iif(Parameters.month.Value = 3,'March',Iif(Parameters.month.Value = 4,'April',Iif(Parameters.month.Value = 5,'May',Iif(Parameters.month.Value = 6,'June',Iif(Parameters.month.Value = 7,'July',Iif(Parameters.month.Value = 8,'August',Iif(Parameters.month.Value = 9,'September',Iif(Parameters.month.Value = 10,'October',Iif(Parameters.month.Value = 11,'November','December')))))))))))) + ' ' + Parameters.year.Value </value>
+  <data name="graphGroup1.Label" xml:space="preserve">
+    <value>= Iif(Fields.mnuum = 1,'Jan',Iif(Fields.mnuum = 2,'Feb',Iif(Fields.mnuum = 3,'Mar',Iif(Fields.mnuum = 4,'Apr',Iif(Fields.mnuum = 5,'May',Iif(Fields.mnuum = 6,'Jun',Iif(Fields.mnuum = 7,'Jul',Iif(Fields.mnuum = 8,'Aug',Iif(Fields.mnuum = 9,'Sep',Iif(Fields.mnuum = 10,'Oct',Iif(Fields.mnuum = 11,'Nov','Dec'))))))))))) + ' 
+' + Fields.yeer</value>
   </data>
-  <data name="textBox21.Value" xml:space="preserve">
-    <value>= Fields.date_in.Day + '-' + Iif(Fields.date_in.Month = 1,'Jan',Iif(Fields.date_in.Month = 2,'Feb',Iif(Fields.date_in.Month = 3,'Mar',Iif(Fields.date_in.Month = 4,'Apr',Iif(Fields.date_in.Month = 5,'May',Iif(Fields.date_in.Month = 6,'Jun',Iif(Fields.date_in.Month = 7,'Jul',Iif(Fields.date_in.Month = 8,'Aug',Iif(Fields.date_in.Month = 9,'Sep',Iif(Fields.date_in.Month = 10,'Oct',Iif(Fields.date_in.Month = 11,'Nov','Dec'))))))))))) + '-' + Fields.date_in.Year</value>
-  </data>
-  <data name="textBox30.Value" xml:space="preserve">
-    <value>= Fields.date_out.Day + '-' + Iif(Fields.date_out.Month = 1,'Jan',Iif(Fields.date_out.Month = 2,'Feb',Iif(Fields.date_out.Month = 3,'Mar',Iif(Fields.date_out.Month = 4,'Apr',Iif(Fields.date_out.Month = 5,'May',Iif(Fields.date_out.Month = 6,'Jun',Iif(Fields.date_out.Month = 7,'Jul',Iif(Fields.date_out.Month = 8,'Aug',Iif(Fields.date_out.Month = 9,'Sep',Iif(Fields.date_out.Month = 10,'Oct',Iif(Fields.date_out.Month = 11,'Nov','Dec'))))))))))) + '-' + Fields.date_out.Year</value>
-  </data>
-  <data name="textBox29.Value" xml:space="preserve">
-    <value>= Fields.max_penyimpanan.Day + '-' + Iif(Fields.max_penyimpanan.Month = 1,'Jan',Iif(Fields.max_penyimpanan.Month = 2,'Feb',Iif(Fields.max_penyimpanan.Month = 3,'Mar',Iif(Fields.max_penyimpanan.Month = 4,'Apr',Iif(Fields.max_penyimpanan.Month = 5,'May',Iif(Fields.max_penyimpanan.Month = 6,'Jun',Iif(Fields.max_penyimpanan.Month = 7,'Jul',Iif(Fields.max_penyimpanan.Month = 8,'Aug',Iif(Fields.max_penyimpanan.Month = 9,'Sep',Iif(Fields.max_penyimpanan.Month = 10,'Oct',Iif(Fields.max_penyimpanan.Month = 11,'Nov','Dec'))))))))))) + '-' + Fields.max_penyimpanan.Year</value>
-  </data>
-  <metadata name="MonthlyReport.DefaultValues" mimetype="application/x-microsoft.net.object.binary.base64">
+  <metadata name="sqlDataSource1.DefaultValues" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdUZWxlcmlrLlJlcG9ydGluZywgVmVyc2lvbj03LjAuMTMuMjIw
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWE5ZDc5ODNkZmNjMjYxYmUMAwAAAKYBVGVs
@@ -377,57 +329,62 @@ Month: ' + Iif(Parameters.month.Value = 1,'January',Iif(Parameters.month.Value =
         RGF0YVNvdXJjZVBhcmFtZXRlcgMAAAACAAAACQQAAAAFBAAAAEtTeXN0ZW0uQ29sbGVjdGlvbnMuR2Vu
         ZXJpYy5MaXN0YDFbW1RlbGVyaWsuUmVwb3J0aW5nLlNxbERhdGFTb3VyY2VQYXJhbWV0ZXIDAAAABl9p
         dGVtcwVfc2l6ZQhfdmVyc2lvbgQAACpUZWxlcmlrLlJlcG9ydGluZy5TcWxEYXRhU291cmNlUGFyYW1l
-        dGVyW10CAAAACAgDAAAACQUAAAACAAAADAAAAAcFAAAAAAEAAAAEAAAABChUZWxlcmlrLlJlcG9ydGlu
-        Zy5TcWxEYXRhU291cmNlUGFyYW1ldGVyAgAAAAkGAAAACQcAAAANAgwIAAAATlN5c3RlbS5EYXRhLCBW
-        ZXJzaW9uPTQuMC4wLjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49Yjc3YTVjNTYxOTM0
-        ZTA4OQwJAAAASVN5c3RlbSwgVmVyc2lvbj00LjAuMC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tl
-        eVRva2VuPWI3N2E1YzU2MTkzNGUwODkFBgAAAChUZWxlcmlrLlJlcG9ydGluZy5TcWxEYXRhU291cmNl
-        UGFyYW1ldGVyBAAAAAZkYlR5cGUYRGF0YVNvdXJjZVBhcmFtZXRlcituYW1lGURhdGFTb3VyY2VQYXJh
-        bWV0ZXIrdmFsdWUjRGF0YVNvdXJjZVBhcmFtZXRlcitQcm9wZXJ0eUNoYW5nZWQEAQIEElN5c3RlbS5E
-        YXRhLkRiVHlwZQgAAAAxU3lzdGVtLkNvbXBvbmVudE1vZGVsLlByb3BlcnR5Q2hhbmdlZEV2ZW50SGFu
-        ZGxlcgkAAAACAAAABfb///8SU3lzdGVtLkRhdGEuRGJUeXBlAQAAAAd2YWx1ZV9fAAgIAAAAEAAAAAYL
-        AAAABkBtb250aAYMAAAAAjEwCgEHAAAABgAAAAHz////9v///xAAAAAGDgAAAAVAeWVhcgYPAAAABDIw
-        MTMKCw==
+        dGVyW10CAAAACAgDAAAACQUAAAADAAAAIwAAAAcFAAAAAAEAAAAEAAAABChUZWxlcmlrLlJlcG9ydGlu
+        Zy5TcWxEYXRhU291cmNlUGFyYW1ldGVyAgAAAAkGAAAACQcAAAAJCAAAAAoMCQAAAE5TeXN0ZW0uRGF0
+        YSwgVmVyc2lvbj00LjAuMC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2
+        MTkzNGUwODkMCgAAAElTeXN0ZW0sIFZlcnNpb249NC4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJs
+        aWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5BQYAAAAoVGVsZXJpay5SZXBvcnRpbmcuU3FsRGF0YVNv
+        dXJjZVBhcmFtZXRlcgQAAAAGZGJUeXBlGERhdGFTb3VyY2VQYXJhbWV0ZXIrbmFtZRlEYXRhU291cmNl
+        UGFyYW1ldGVyK3ZhbHVlI0RhdGFTb3VyY2VQYXJhbWV0ZXIrUHJvcGVydHlDaGFuZ2VkBAECBBJTeXN0
+        ZW0uRGF0YS5EYlR5cGUJAAAAMVN5c3RlbS5Db21wb25lbnRNb2RlbC5Qcm9wZXJ0eUNoYW5nZWRFdmVu
+        dEhhbmRsZXIKAAAAAgAAAAX1////ElN5c3RlbS5EYXRhLkRiVHlwZQEAAAAHdmFsdWVfXwAICQAAAAYA
+        AAAGDAAAAAlAZGF0ZWZyb20GDQAAAAk5LzEwLzIwMTMKAQcAAAAGAAAAAfL////1////BgAAAAYPAAAA
+        B0BkYXRldG8GEAAAAAk5LzEwLzIwMTQKAQgAAAAGAAAAAe/////1////CwAAAAYSAAAABkB0eXBlcwYT
+        AAAAAzEsMgoL
 </value>
   </metadata>
-  <data name="MonthlyReport.SelectCommand" xml:space="preserve">
-    <value>with type_waste(id,name,code) as (
-	select * from waste_hazardous
+  <data name="sqlDataSource1.SelectCommand" xml:space="preserve">
+    <value>WITH mnth(mnuum, yeer) AS (
+SELECT month(CAST(@datefrom AS datetime)) AS Expr1, year(CAST(@datefrom AS datetime)) AS Expr2
+UNION ALL
+SELECT  CASE WHEN mnuum &gt; 11 THEN 1 ELSE mnuum + 1 END AS mnuum, 
+        CASE WHEN mnuum &gt; 11 THEN yeer + 1 ELSE yeer END AS yeer
+FROM    mnth AS mnth_2
+WHERE   (mnuum &lt; month(CAST(@dateto AS datetime))) OR
+                            (yeer &lt; year(CAST(@dateto AS datetime)))),
+type_waste(id,name) as (
+select id,name
+from type_of_waste
+where id in (@types)
 )
-select type_waste.name, type_waste.code, e.date_in, isnull(e.volume_in,0) as volume_in, isnull(e.source,'-') as source, e.date_out, isnull(e.volume_out,0) as volume_out, isnull(e.tujuan,'-') as tujuan, isnull(f.last_month_volume,0) as last_month_volume, (isnull(last_month_volume,0) + isnull(volume_in,0) - isnull(volume_out,0)) as sisa, case when (isnull(last_month_volume,0) + isnull(volume_in,0) - isnull(volume_out,0)) &lt;&gt; 0 then g.max_penyimpanan else null end as max_penyimpanan
-from type_waste left join
-(select * from
-(select id_waste as id_in, max(date) as date_in,sum(volume_weight * isnull(unit_conversion,1)) as volume_in,max(source_of_waste.source) as source, max(max_penyimpanan) as max_penyimpanan
-from hazardous_record left join source_of_waste on hazardous_record.id_source = source_of_waste.id left join satuan_unit on hazardous_record.id_satuan = satuan_unit.id
-where month(hazardous_record.date) = @month and year(hazardous_record.date) = @year and type = 0 group by id_waste) as a
-left join
-(select id_waste as id_out, max(date) as date_out,sum(volume_weight * isnull(unit_conversion,1)) as volume_out,max(tujuan) as tujuan
-from hazardous_record left join satuan_unit on hazardous_record.id_satuan = satuan_unit.id
-where month(hazardous_record.date) = @month and year(hazardous_record.date) = @year and type = 1 group by id_waste) as b
-on a.id_in = b.id_out) as e on type_waste.id = e.id_in
-left join
-(select c.id_in as waste_id, (c.volume - d.volume) as last_month_volume, c.max_penyimpanan from
-(select id_waste as id_in, max(date) as date_in,sum(volume_weight * isnull(unit_conversion,1)) as volume,max(source_of_waste.source) as source, max(max_penyimpanan) as max_penyimpanan
-from hazardous_record left join source_of_waste on hazardous_record.id_source = source_of_waste.id left join satuan_unit on hazardous_record.id_satuan = satuan_unit.id
-where hazardous_record.date &lt; @year+'-'+@month+'-01' and type = 0 group by id_waste) as c
-left join
-(select id_waste as id_out, max(date) as date_out,sum(volume_weight * isnull(unit_conversion,1)) as volume,max(tujuan) as tujuan
-from hazardous_record left join satuan_unit on hazardous_record.id_satuan = satuan_unit.id
-where hazardous_record.date &lt; @year+'-'+@month+'-01' and type = 1 group by id_waste) as d
-on c.id_in = d.id_out) as f on type_waste.id = f.waste_id
-left join
-(select c.id_in as id_waste, min(max_penyimpanan) as max_penyimpanan from
-(select id_waste as id_in, date as date_in, max_penyimpanan
-from hazardous_record left join source_of_waste on hazardous_record.id_source = source_of_waste.id
-where type = 0) as c
-join
-(select id_waste as id_out, max(date) as date_out
-from hazardous_record 
-where type = 1 group by id_waste) as d
-on c.id_in = d.id_out and c.date_in &gt; d.date_out
-group by c.id_in) as g on type_waste.id = g.id_waste
-</value>
+SELECT  mnth.mnuum, mnth.yeer, isnull(a.waste_in,0) waste_in, type_waste.id, type_waste.name
+FROM    mnth CROSS JOIN type_waste LEFT OUTER JOIN 
+(select month(non_hazardous_record.date) as month, year(non_hazardous_record.date) as year, isnull(sum(non_hazardous_record.waste_in),0) waste_in, id_type
+from non_hazardous_record 
+group by month(non_hazardous_record.date), year(non_hazardous_record.date), id_type) a
+left join type_of_waste on a.id_type = type_of_waste.id
+on mnth.mnuum = a.month and mnth.yeer = a.year and type_waste.id = a.id_type</value>
   </data>
+  <data name="textBox3.Value" xml:space="preserve">
+    <value>= Iif(Fields.mnuum = 1,'Jan',Iif(Fields.mnuum = 2,'Feb',Iif(Fields.mnuum = 3,'Mar',Iif(Fields.mnuum = 4,'Apr',Iif(Fields.mnuum = 5,'May',Iif(Fields.mnuum = 6,'Jun',Iif(Fields.mnuum = 7,'Jul',Iif(Fields.mnuum = 8,'Aug',Iif(Fields.mnuum = 9,'Sep',Iif(Fields.mnuum = 10,'Oct',Iif(Fields.mnuum = 11,'Nov','Dec'))))))))))) + ' 
+' + Fields.yeer</value>
+  </data>
+  <metadata name="waste_type.DefaultValues" mimetype="application/x-microsoft.net.object.binary.base64">
+    <value>
+        AAEAAAD/////AQAAAAAAAAAMAgAAAFdUZWxlcmlrLlJlcG9ydGluZywgVmVyc2lvbj03LjAuMTMuMjIw
+        LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWE5ZDc5ODNkZmNjMjYxYmUMAwAAAKYBVGVs
+        ZXJpay5SZXBvcnRpbmcsIFZlcnNpb249Ny4wLjEzLjIyMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNL
+        ZXlUb2tlbj1hOWQ3OTgzZGZjYzI2MWJlXV0sIG1zY29ybGliLCBWZXJzaW9uPTQuMC4wLjAsIEN1bHR1
+        cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49Yjc3YTVjNTYxOTM0ZTA4OQUBAAAAMlRlbGVyaWsuUmVw
+        b3J0aW5nLlNxbERhdGFTb3VyY2VQYXJhbWV0ZXJDb2xsZWN0aW9uAQAAABJDb2xsZWN0aW9uYDEraXRl
+        bXMES1N5c3RlbS5Db2xsZWN0aW9ucy5HZW5lcmljLkxpc3RgMVtbVGVsZXJpay5SZXBvcnRpbmcuU3Fs
+        RGF0YVNvdXJjZVBhcmFtZXRlcgMAAAACAAAACQQAAAAFBAAAAEtTeXN0ZW0uQ29sbGVjdGlvbnMuR2Vu
+        ZXJpYy5MaXN0YDFbW1RlbGVyaWsuUmVwb3J0aW5nLlNxbERhdGFTb3VyY2VQYXJhbWV0ZXIDAAAABl9p
+        dGVtcwVfc2l6ZQhfdmVyc2lvbgQAACpUZWxlcmlrLlJlcG9ydGluZy5TcWxEYXRhU291cmNlUGFyYW1l
+        dGVyW10CAAAACAgDAAAACQUAAAAAAAAAAQAAAAcFAAAAAAEAAAAAAAAABChUZWxlcmlrLlJlcG9ydGlu
+        Zy5TcWxEYXRhU291cmNlUGFyYW1ldGVyAgAAAAs=
+</value>
+  </metadata>
   <metadata name="$this.SnapGridSize" type="Telerik.Reporting.Drawing.Unit, Telerik.Reporting, Version=7.0.13.220, Culture=neutral, PublicKeyToken=a9d7983dfcc261be">
     <value>0.1in</value>
   </metadata>

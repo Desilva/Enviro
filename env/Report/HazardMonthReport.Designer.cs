@@ -221,9 +221,7 @@ namespace env.Report
             // 
             this.Month.ConnectionString = "starenergyenviro";
             this.Month.Name = "Month";
-            this.Month.ProviderName = "System.Data.SqlClient";
-            this.Month.SelectCommand = "with mnth(mnnum) as(\r\n\tselect 1\r\n\tunion all\r\n\tselect mnnum+1 from mnth where mnnu" +
-    "m < 12\r\n)\r\nselect mnnum as month\r\nfrom mnth";
+            this.Month.SelectCommand = resources.GetString("Month.SelectCommand");
             // 
             // Year
             // 
@@ -618,7 +616,7 @@ namespace env.Report
             this.PageSettings.PaperKind = System.Drawing.Printing.PaperKind.A4;
             reportParameter1.AutoRefresh = true;
             reportParameter1.AvailableValues.DataSource = this.Month;
-            reportParameter1.AvailableValues.DisplayMember = "= Fields.month";
+            reportParameter1.AvailableValues.DisplayMember = "= Fields.month_name";
             reportParameter1.AvailableValues.ValueMember = "= Fields.month";
             reportParameter1.Name = "month";
             reportParameter1.Text = "month";

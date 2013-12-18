@@ -245,11 +245,25 @@ function addHandlerMenu() {
         setActiveReportMenu('non-hazard-report');
     });
 
+    $('#non-hazard-generation').click(function () {
+        loading();
+        $('#content').load('NonHazardousReport/WasteReport');
+        document.title = "Enviro - Non Hazardous Waste Generations Report";
+        setActiveReportMenu('non-hazard-generation');
+    });
+
     $('#non-hazard-report').click(function () {
         loading();
         $('#content').load('NonHazardousReport/Index');
         document.title = "Enviro - Non Hazardous Recycle Rate Report";
         setActiveReportMenu('non-hazard-report');
+    });
+
+    $('#graphic-overall').click(function () {
+        loading();
+        $('#content').load('Graphics/OverallGraphic');
+        document.title = "Enviro - Overall Environmental Monitoring Graphics";
+        setActiveReportMenu('graphic-overall');
     });
 }
 
