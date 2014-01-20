@@ -66,7 +66,7 @@ namespace env.Report
                 group by month(date), year(date), lokasi_sampling
                 order by year, month
                 "
-                 , "Data Source=SEPTU-PC\\SQLEXPRESS;Initial Catalog=star_energy_enviro;Integrated Security=True;MultipleActiveResultSets=True;Application Name=EntityFramework");
+                 , "Data Source=(local);Initial Catalog=star_energy_enviro;Integrated Security=True;MultipleActiveResultSets=True;Application Name=EntityFramework");
             adapter.Fill(table);
             SqlDataAdapter adapter2 = new SqlDataAdapter(
             @"select distinct month(date) as month, year(date) as year
@@ -75,7 +75,7 @@ namespace env.Report
 	                left join lokasi_sampling on graphic_data.id_lokasi = lokasi_sampling.id
                 where graphic_data.type = " + type + " and id_parameter in (" + parameters + ") and year(date) >= " + yearfrom + @" and year(date) <= " + yearto + " and month(date) in (" + months + @") 
                 order by year, month"
-                 , "Data Source=SEPTU-PC\\SQLEXPRESS;Initial Catalog=star_energy_enviro;Integrated Security=True;MultipleActiveResultSets=True;Application Name=EntityFramework");
+                 , "Data Source=(local);Initial Catalog=star_energy_enviro;Integrated Security=True;MultipleActiveResultSets=True;Application Name=EntityFramework");
             adapter2.Fill(tXLabel);
             DataColumn[] column = new DataColumn[2];
             column[0] = tXLabel.Columns["month"];
@@ -88,7 +88,7 @@ namespace env.Report
             	                left join lokasi_sampling on graphic_data.id_lokasi = lokasi_sampling.id
                             where graphic_data.type = " + type + " and id_parameter in (" + parameters + ") and year(date) >= " + yearfrom + @" and year(date) <= " + yearto + " and month(date) in (" + months + @") 
                             "
-                 , "Data Source=SEPTU-PC\\SQLEXPRESS;Initial Catalog=star_energy_enviro;Integrated Security=True;MultipleActiveResultSets=True;Application Name=EntityFramework");
+                 , "Data Source=(local);Initial Catalog=star_energy_enviro;Integrated Security=True;MultipleActiveResultSets=True;Application Name=EntityFramework");
             adapter3.Fill(tSeries);
             DataColumn[] column2 = new DataColumn[1];
             column2[0] = tSeries.Columns["lokasi_sampling"];
@@ -99,7 +99,7 @@ namespace env.Report
                 Color.Yellow, 
                 Color.Black, 
                 Color.Blue, 
-                Color.White, 
+                Color.Pink, 
                 Color.Green, 
                 Color.MediumPurple, 
                 Color.Brown, 

@@ -23,7 +23,7 @@
             int[] gp = lgp.Where(p => p.type == gt.id).Select(p => p.id).ToArray();
             rpt.Reports.ElementAt(i).ReportParameters["parameter"].Value = gp;
             rpt.Reports.ElementAt(i).ReportParameters["parameter"].Mergeable = false;
-            rpt.Reports.ElementAt(i).ReportParameters["parameter"].Visible = false;
+            //rpt.Reports.ElementAt(i).ReportParameters["parameter"].Visible = false;
             i++;
         }
         Telerik.Reporting.InstanceReportSource reportSource = new Telerik.Reporting.InstanceReportSource();
