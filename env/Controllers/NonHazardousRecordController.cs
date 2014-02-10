@@ -8,9 +8,11 @@ using System.Data.Entity;
 using env.Models.Wrapper;
 using System.Data;
 using System.Diagnostics;
+using env.Utilities;
 
 namespace env.Controllers
 {
+    [AuthorizeUser("")]
     public class NonHazardousRecordController : Controller
     {
         private star_energy_enviroEntities db = new star_energy_enviroEntities();

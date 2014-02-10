@@ -33,6 +33,9 @@ namespace env
                         "~/Scripts/select2.js"
                         ));
 
+            bundles.Add(new ScriptBundle("~/bundles/login").Include(
+                "~/Scripts/unicorn.login.js"));
+
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
@@ -51,6 +54,10 @@ namespace env
                         "~/Content/uniform.css",
                         "~/Content/jquery-ui.css",
                         "~/Content/jquery.gritter.css"
+                        ));
+
+            bundles.Add(new StyleBundle("~/Content/login").Include(
+                        "~/Content/unicorn.login.css"
                         ));
 
             bundles.Add(new StyleBundle("~/Content/themes/base/css").Include(

@@ -19,8 +19,8 @@
 		</div>
 		<div id="user-nav" class="navbar navbar-inverse">
             <ul class="nav btn-group">
-                <li class="btn btn-inverse" ><a title="" href="#"><i class="icon icon-user"></i> <span class="text">Profile</span></a></li>
-                <li class="btn btn-inverse"><a title="" href="Login"><i class="icon icon-share-alt"></i> <span class="text">Logout</span></a></li>
+                <li class="btn btn-inverse disabled" ><a title="" href="#"><i class="icon icon-user"></i> <span class="text">@(Session["user"] != null ? (Session["user"] as env.Models.UserModel).alpha_name : "")</span></a></li>
+                <li class="btn btn-inverse"><a title="" href="@Url.Action("Logoff","Account", new { area = ""})"><i class="icon icon-share-alt"></i> <span class="text">Logout</span></a></li>
             </ul>
         </div>
             

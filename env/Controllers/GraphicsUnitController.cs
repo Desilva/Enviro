@@ -1,4 +1,5 @@
 ﻿using env.Models;
+using env.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -8,6 +9,7 @@ using System.Web.Mvc;
 
 namespace env.Controllers
 {
+    [AuthorizeUser("")]
     public class GraphicsUnitController : Controller
     {
         private star_energy_enviroEntities db = new star_energy_enviroEntities();

@@ -7,9 +7,11 @@ using System.Web.Mvc;
 using System.Data.Entity;
 using env.Models.Wrapper;
 using System.Data;
+using env.Utilities;
 
 namespace env.Controllers
 {
+    [AuthorizeUser("")]
     public class HazardousRecordController : Controller
     {
         private star_energy_enviroEntities db = new star_energy_enviroEntities();

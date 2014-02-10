@@ -1,0 +1,58 @@
+﻿@model env.Models.LoginModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Enviro</title>
+		<meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        @Styles.Render("~/Content/css")
+        @Styles.Render("~/Content/login")
+    </head>
+    <body>
+        <div id="container">
+            <div id="logo">
+                <img src="~/Img/logo.png" alt="" />
+            </div>
+            <div class="alert alert-error text-center" style="display:none" id="fail">
+              <strong>Error!</strong> <span id="errorMessage">@Model.errorMessage</span>
+            </div>
+            <div id="loginbox">            
+                <form id="loginform" action="/account/login" method="post">
+                    <p>Enter username and password to continue.</p>
+                    <div class="control-group">
+                        <div class="controls">
+                            <div class="input-prepend">
+                                <span class="add-on"><i class="icon-user"></i></span><input type="text" placeholder="Username" name="username" id="username" value="@Model.username" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="controls">
+                            <div class="input-prepend">
+                                <span class="add-on"><i class="icon-lock"></i></span><input type="password" placeholder="Password" name="password" id="password" />
+                            </div>
+                        </div>
+                    </div>
+                    <input type="hidden" name="returnUrl" value="@ViewBag.returnUrl" />
+                    <div class="form-actions">
+                        <div class="pull-right"><input type="submit" class="btn btn-default" value="Login" /></div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/login")
+        <script type="text/javascript">
+            $(document).ready(function () {
+                if ('@Model.errorMessage.IsEmpty()' != 'True') {
+                    $('#fail').show(300);
+                    setTimeout(function () { $('#fail').hide(300) }, 3000);
+                }
+            });
+        </script>
+    </body>
+</html>

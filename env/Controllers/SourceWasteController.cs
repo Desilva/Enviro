@@ -1,5 +1,6 @@
 ﻿using env.Models;
 using env.Models.Wrapper;
+using env.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -9,6 +10,7 @@ using System.Web.Mvc;
 
 namespace env.Controllers
 {
+    [AuthorizeUser("")]
     public class SourceWasteController : Controller
     {
         private star_energy_enviroEntities db = new star_energy_enviroEntities();
